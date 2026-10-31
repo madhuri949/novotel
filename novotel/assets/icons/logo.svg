@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80" fill="none">
+  <!-- Monogram Crest -->
+  <g transform="translate(10, 12)">
+    <rect x="0" y="0" width="56" height="56" rx="14" fill="url(#navyGrad)" stroke="url(#goldGrad)" stroke-width="2"/>
+    <!-- Stylized N monogram with luxury accents -->
+    <path d="M16 42V14L34 38V14" stroke="url(#goldGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="41" cy="17" r="3.5" fill="#e6ca65" />
+    <path d="M22 23L38 42" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-dasharray="2 2"/>
+  </g>
+  <!-- Brand Typography -->
+  <g transform="translate(80, 22)">
+    <text x="0" y="28" font-family="'Plus Jakarta Sans', 'Montserrat', 'Inter', sans-serif" font-size="28" font-weight="800" letter-spacing="4" fill="url(#textGrad)">NOVOTEL</text>
+    <text x="1" y="45" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="9.5" font-weight="600" letter-spacing="3.2" fill="#d4af37">GRAND HORIZON RESORT &amp; SUITES</text>
+  </g>
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="navyGrad" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0e1e38"/>
+      <stop offset="100%" stop-color="#070f1e"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fae392"/>
+      <stop offset="50%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#aa8222"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0f2038"/>
+      <stop offset="100%" stop-color="#1e3a63"/>
+    </linearGradient>
+  </defs>
+</svg>

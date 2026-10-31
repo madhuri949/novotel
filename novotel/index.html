@@ -1,0 +1,2456 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novotel Grand Horizon Resort &amp; Suites | Premium Luxury Hotel &amp; Booking</title>
+  <meta name="description" content="Experience refined luxury, family comfort, and business travel convenience at Novotel Grand Horizon Resort &amp; Suites. Book your stay with breathtaking ocean views and world-class hospitality.">
+  <meta name="keywords" content="Novotel, luxury hotel, resort, suites, French Riviera, hotel booking, family hotel, business travel, infinity pool, spa, dining">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. UTILITY TOP BAR
+       ========================================================================== -->
+  <aside class="utility-bar" aria-label="Utility navigation and hotel quick links">
+    <div class="container-wide utility-bar-inner">
+      <div class="utility-left">
+        <a href="tel:+33493000000" class="utility-item" aria-label="Call concierge">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          <span>+33 (0)4 93 00 00 00</span>
+        </a>
+        <span class="utility-item">
+          <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+          <span>120 Promenade des Horizons, French Riviera</span>
+        </span>
+        <div class="utility-promo-pill">
+          <i class="fa-solid fa-crown" aria-hidden="true"></i>
+          <span>ALL Accor Live Limitless: Members save up to 10%</span>
+        </div>
+      </div>
+
+      <div class="utility-right">
+        <!-- Currency Selector -->
+        <div class="utility-select-wrap">
+          <label for="currencySelect" class="sr-only" style="display:none;">Currency</label>
+          <i class="fa-solid fa-coins" style="color: var(--accent-gold); font-size: 0.8rem;" aria-hidden="true"></i>
+          <select id="currencySelect" class="utility-select" aria-label="Select currency">
+            <option value="USD" selected>USD ($)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="AUD">AUD (A$)</option>
+            <option value="JPY">JPY (¥)</option>
+          </select>
+        </div>
+
+        <!-- Language Selector -->
+        <div class="utility-select-wrap">
+          <i class="fa-solid fa-globe" style="color: var(--accent-gold); font-size: 0.8rem;" aria-hidden="true"></i>
+          <select class="utility-select" aria-label="Select language" onchange="showToast('Language Changed', 'Demo locale set to ' + this.value, 'fa-globe')">
+            <option value="English">English (EN)</option>
+            <option value="Français">Français (FR)</option>
+            <option value="Deutsch">Deutsch (DE)</option>
+            <option value="Español">Español (ES)</option>
+            <option value="日本語">日本語 (JA)</option>
+          </select>
+        </div>
+
+        <!-- Light / Dark Theme Switcher -->
+        <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle light or dark theme" title="Toggle theme">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       2. MAIN HEADER & STICKY NAVIGATION
+       ========================================================================== -->
+  <header id="mainHeader" class="main-header" role="banner">
+    <div class="container-wide nav-container">
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-logo-link" aria-label="Novotel Grand Horizon Home">
+        <img src="assets/icons/logo.svg" alt="Novotel Grand Horizon Resort &amp; Suites Logo" class="brand-logo-img">
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="nav-menu" role="navigation" aria-label="Main menu">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#rooms" class="nav-link">Rooms &amp; Suites</a>
+        <a href="#amenities" class="nav-link">Amenities</a>
+        <a href="#dining" class="nav-link">Dining</a>
+        <a href="#experiences" class="nav-link">Experiences</a>
+        <a href="#events" class="nav-link">Meetings &amp; Events</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#offers" class="nav-link">Special Offers</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="nav-actions">
+        <!-- Admin / Staff Login Button -->
+        <button id="adminLoginBtn" class="admin-login-nav-btn" aria-label="Staff and Admin Portal Login" title="Staff &amp; Admin Portal">
+          <i class="fa-solid fa-user-shield" aria-hidden="true"></i>
+          <span class="admin-btn-text">Admin</span>
+        </button>
+
+        <!-- Wishlist Button -->
+        <button id="wishlistToggleBtn" class="wishlist-icon-btn" aria-label="View saved rooms wishlist" title="Saved Wishlist">
+          <i class="fa-regular fa-heart" aria-hidden="true"></i>
+          <span id="wishlistBadge" class="wishlist-count" style="display: none;">0</span>
+        </button>
+
+        <!-- Primary Booking CTA -->
+        <a href="#bookingEngineSection" class="btn btn-primary" id="headerBookBtn">
+          <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+          <span>Book Your Stay</span>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button id="hamburgerBtn" class="hamburger-btn" aria-label="Open mobile navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay & Drawer -->
+  <div id="mobileNavOverlay" class="mobile-nav-overlay" aria-hidden="true"></div>
+  <aside id="mobileNavDrawer" class="mobile-nav-drawer" aria-label="Mobile navigation menu">
+    <div class="mobile-drawer-header">
+      <img src="assets/icons/logo.svg" alt="Novotel Logo" style="height: 38px;">
+      <button id="closeMobileNavBtn" style="font-size: 1.5rem; color: var(--text-primary);" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="#hero" class="mobile-nav-link">Home <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem; color: var(--accent-gold);"></i></a>
+      <a href="#rooms" class="mobile-nav-link">Rooms &amp; Suites <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem; color: var(--accent-gold);"></i></a>
+      <a href="#amenities" class="mobile-nav-link">Hotel Amenities <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem; color: var(--accent-gold);"></i></a>
+      <a href="#dining" class="mobile-nav-link">Dining &amp; Bar <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem; color: var(--accent-gold);"></i></a>
+      <a href="#experiences" class="mobile-nav-link">Experiences <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem; color: var(--accent-gold);"></i></a>
+      <a href="#events" class="mobile-nav-link">Meetings &amp; Events <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem; color: var(--accent-gold);"></i></a>
+      <a href="#gallery" class="mobile-nav-link">Photo Gallery <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem; color: var(--accent-gold);"></i></a>
+      <a href="#offers" class="mobile-nav-link">Special Offers <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem; color: var(--accent-gold);"></i></a>
+      <a href="#contact" class="mobile-nav-link">Location &amp; Contact <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem; color: var(--accent-gold);"></i></a>
+    </div>
+    <div class="mobile-drawer-footer">
+      <button type="button" id="mobileAdminLoginBtn" class="btn btn-outline-dark" style="width: 100%; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+        <i class="fa-solid fa-user-shield" style="color: var(--accent-gold);"></i> Staff &amp; Admin Portal
+      </button>
+      <a href="#bookingEngineSection" class="btn btn-primary" style="width: 100%;">Book Your Stay</a>
+      <div style="font-size: 0.8125rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem;">
+        Concierge: +33 (0)4 93 00 00 00
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       3. HERO SECTION WITH IMAGE CAROUSEL
+       ========================================================================== -->
+  <section id="hero" class="hero-section" aria-label="Hero showcase">
+    <!-- Slider Background Images -->
+    <div class="hero-slider-wrap">
+      <!-- Slide 1 -->
+      <div class="hero-slide active">
+        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=2000&q=85" alt="Infinity Pool overlooking the ocean at sunset" class="hero-bg-img">
+      </div>
+      <!-- Slide 2 -->
+      <div class="hero-slide">
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2000&q=85" alt="Luxury Suite with panoramic coastal view" class="hero-bg-img">
+      </div>
+      <!-- Slide 3 -->
+      <div class="hero-slide">
+        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=85" alt="The Horizon Brasserie terrace fine dining" class="hero-bg-img">
+      </div>
+    </div>
+
+    <!-- Gradient Overlay -->
+    <div class="hero-overlay"></div>
+
+    <!-- Hero Content -->
+    <div class="container hero-content">
+      <div class="hero-badge-pill">
+        <i class="fa-solid fa-gem" aria-hidden="true"></i>
+        <span>French Riviera &middot; 5-Star Luxury Resort</span>
+      </div>
+
+      <h1 class="hero-title">
+        Stay Inspired. <span>Experience More.</span>
+      </h1>
+
+      <p class="hero-description">
+        Where contemporary elegance meets genuine French <em>art de vivre</em>. Immerse yourself in panoramic coastal vistas, Michelin-inspired dining, and tailored comfort for both family vacations and executive travels.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#bookingEngineSection" class="btn btn-gold btn-lg">
+          <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+          <span>Book Your Stay</span>
+        </a>
+        <a href="#rooms" class="btn btn-outline-light btn-lg">
+          <span>Explore Our Hotel</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <!-- Video Modal Trigger -->
+        <button id="heroVideoBtn" class="hero-film-trigger" aria-label="Watch resort video showcase" onclick="openModal(document.getElementById('videoFilmModal'))">
+          <span class="hero-play-icon"><i class="fa-solid fa-play"></i></span>
+          <span>Watch Film</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Hero Slider Controls -->
+    <div class="hero-slider-nav" aria-label="Hero slider controls">
+      <button id="heroPrevBtn" class="hero-nav-arrow" aria-label="Previous slide"><i class="fa-solid fa-arrow-left"></i></button>
+      <div class="hero-indicators">
+        <span class="hero-indicator-dot active" data-slide-index="0" aria-label="Slide 1"></span>
+        <span class="hero-indicator-dot" data-slide-index="1" aria-label="Slide 2"></span>
+        <span class="hero-indicator-dot" data-slide-index="2" aria-label="Slide 3"></span>
+      </div>
+      <button id="heroNextBtn" class="hero-nav-arrow" aria-label="Next slide"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+
+    <!-- Quick Stats Strip -->
+    <div class="hero-stats-strip">
+      <div class="container hero-stats-grid">
+        <div class="hero-stat-item">
+          <i class="fa-solid fa-award" aria-hidden="true"></i>
+          <div class="hero-stat-text">
+            <h4>5-Star Certified</h4>
+            <p>Luxury Hospitality</p>
+          </div>
+        </div>
+        <div class="hero-stat-item">
+          <i class="fa-solid fa-water-ladder" aria-hidden="true"></i>
+          <div class="hero-stat-text">
+            <h4>Heated Infinity Pool</h4>
+            <p>Overlooking Horizon</p>
+          </div>
+        </div>
+        <div class="hero-stat-item">
+          <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+          <div class="hero-stat-text">
+            <h4>Michelin Inspired</h4>
+            <p>Riviera Fine Dining</p>
+          </div>
+        </div>
+        <div class="hero-stat-item">
+          <i class="fa-solid fa-shield-heart" aria-hidden="true"></i>
+          <div class="hero-stat-text">
+            <h4>Family &amp; Kids Perks</h4>
+            <p>Free Stays Under 16</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. HOTEL BOOKING ENGINE (FLOATING SEARCH PANEL)
+       ========================================================================== -->
+  <section id="bookingEngineSection" class="booking-engine-wrapper" aria-label="Hotel reservation search engine">
+    <div class="container">
+      <div class="booking-engine-card">
+        <!-- Booking Tabs -->
+        <div class="booking-tabs" role="tablist">
+          <button class="booking-tab-btn active" role="tab" aria-selected="true">
+            <i class="fa-solid fa-bed" aria-hidden="true"></i>
+            <span>Reserve A Room</span>
+          </button>
+          <button class="booking-tab-btn" role="tab" aria-selected="false" onclick="showToast('Special Offers', 'Select a package below to auto-apply promotional discounts!', 'fa-tag')">
+            <i class="fa-solid fa-percent" aria-hidden="true"></i>
+            <span>Special Packages</span>
+          </button>
+          <button class="booking-tab-btn" role="tab" aria-selected="false" onclick="showToast('Manage Booking', 'Please enter your booking confirmation number to review itinerary.', 'fa-clipboard-check')">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <span>Find Reservation</span>
+          </button>
+        </div>
+
+        <!-- Search Form -->
+        <form id="bookingSearchForm" class="booking-form-grid" novalidate>
+          <!-- Destination Field -->
+          <div class="booking-field">
+            <label class="booking-label" for="bookingDestination">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Destination / Property
+            </label>
+            <div class="booking-input-wrap">
+              <i class="fa-solid fa-hotel" aria-hidden="true"></i>
+              <input type="text" id="bookingDestination" class="booking-input" value="Novotel Grand Horizon, Riviera" readonly>
+            </div>
+          </div>
+
+          <!-- Check-in Date -->
+          <div class="booking-field">
+            <label class="booking-label" for="checkinDate">
+              <i class="fa-regular fa-calendar" aria-hidden="true"></i> Check-In Date
+            </label>
+            <div class="booking-input-wrap">
+              <i class="fa-solid fa-plane-arrival" aria-hidden="true"></i>
+              <input type="date" id="checkinDate" class="booking-input booking-input-date" required>
+            </div>
+          </div>
+
+          <!-- Check-out Date -->
+          <div class="booking-field">
+            <label class="booking-label" for="checkoutDate">
+              <i class="fa-regular fa-calendar" aria-hidden="true"></i> Check-Out Date
+            </label>
+            <div class="booking-input-wrap">
+              <i class="fa-solid fa-plane-departure" aria-hidden="true"></i>
+              <input type="date" id="checkoutDate" class="booking-input booking-input-date" required>
+            </div>
+          </div>
+
+          <!-- Guests & Rooms Selector Trigger -->
+          <div class="booking-field">
+            <label class="booking-label" for="guestSelectorTrigger">
+              <i class="fa-solid fa-user-group" aria-hidden="true"></i> Guests &amp; Rooms
+            </label>
+            <div id="guestSelectorTrigger" class="booking-input-wrap guest-selector-trigger" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false">
+              <i class="fa-solid fa-users" aria-hidden="true"></i>
+              <span id="guestDisplayText" class="guest-display-text">2 Adults · 1 Room</span>
+            </div>
+
+            <!-- Popover Stepper Dropdown -->
+            <div id="guestPopover" class="guest-popover" role="dialog" aria-label="Select number of guests and rooms">
+              <!-- Adults -->
+              <div class="guest-row">
+                <div class="guest-info">
+                  <h5>Adults</h5>
+                  <p>Ages 18 and older</p>
+                </div>
+                <div class="guest-stepper">
+                  <button type="button" id="adultsStepperMinus" class="stepper-btn" aria-label="Decrease adults">&minus;</button>
+                  <span id="adultsValue" class="stepper-value">2</span>
+                  <button type="button" id="adultsStepperPlus" class="stepper-btn" aria-label="Increase adults">&plus;</button>
+                </div>
+              </div>
+              <!-- Children -->
+              <div class="guest-row">
+                <div class="guest-info">
+                  <h5>Children</h5>
+                  <p>Ages 0 to 17 (Stay Free)</p>
+                </div>
+                <div class="guest-stepper">
+                  <button type="button" id="childrenStepperMinus" class="stepper-btn" aria-label="Decrease children">&minus;</button>
+                  <span id="childrenValue" class="stepper-value">0</span>
+                  <button type="button" id="childrenStepperPlus" class="stepper-btn" aria-label="Increase children">&plus;</button>
+                </div>
+              </div>
+              <!-- Rooms -->
+              <div class="guest-row">
+                <div class="guest-info">
+                  <h5>Rooms</h5>
+                  <p>Accommodations needed</p>
+                </div>
+                <div class="guest-stepper">
+                  <button type="button" id="roomsStepperMinus" class="stepper-btn" aria-label="Decrease rooms">&minus;</button>
+                  <span id="roomsValue" class="stepper-value">1</span>
+                  <button type="button" id="roomsStepperPlus" class="stepper-btn" aria-label="Increase rooms">&plus;</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Promo Code Field -->
+          <div class="booking-field">
+            <label class="booking-label" for="promoCodeInput">
+              <i class="fa-solid fa-tag" aria-hidden="true"></i> Promo Code
+            </label>
+            <div class="booking-input-wrap">
+              <i class="fa-solid fa-ticket" aria-hidden="true"></i>
+              <input type="text" id="promoCodeInput" class="booking-input" placeholder="e.g. WEEKEND20">
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="booking-field">
+            <button type="submit" id="searchAvailabilityBtn" class="btn btn-primary" style="height: 48px; width: 100%;">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <span>Search Rates</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Disclaimer Notice -->
+        <div class="booking-disclaimer">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          <span>Demo Booking Engine: Sample availability and rates are illustrative for prototype preview purposes.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. ROOMS & SUITES SECTION
+       ========================================================================== -->
+  <section id="rooms" class="section-padding rooms-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Curated Accommodations</span>
+        <h2 class="section-title">Rooms &amp; Signature Suites</h2>
+        <p class="section-subtitle">
+          Designed with serene elegance, premium soundproofing, ergonomic workspaces, and panoramic coastal balconies for an unforgettable stay.
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <nav class="room-filter-nav" aria-label="Filter room types">
+        <button class="filter-pill active" data-filter="all">All Accommodations</button>
+        <button class="filter-pill" data-filter="standard">Standard &amp; Superior</button>
+        <button class="filter-pill" data-filter="business">Executive Business</button>
+        <button class="filter-pill" data-filter="family">Family Friendly</button>
+        <button class="filter-pill" data-filter="suites">Luxury Suites</button>
+        <button class="filter-pill" data-filter="ocean">Ocean Panorama</button>
+      </nav>
+
+      <!-- Rooms Grid -->
+      <div class="rooms-grid">
+        <!-- Room 1: Standard Room -->
+        <article class="room-card" data-room-id="room-std" data-category="standard business">
+          <div class="room-card-image-wrap">
+            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" alt="Standard Heritage Room" class="room-card-img" loading="lazy">
+            <span class="badge badge-navy room-badge">Classic Comfort</span>
+            <button class="room-wishlist-btn" aria-label="Add Standard Heritage Room to wishlist" title="Save to wishlist">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="room-card-content">
+            <h3 class="room-card-title">Standard Heritage Room</h3>
+            <p class="room-card-desc">
+              An oasis of calm crafted with soothing neutral tones, plush Novotel Live N Dream bedding, an ergonomic workstation, and smart connected tech.
+            </p>
+            <div class="room-spec-bar">
+              <span class="room-spec-item"><i class="fa-solid fa-user-group"></i> 2 Guests</span>
+              <span class="room-spec-item"><i class="fa-solid fa-bed"></i> King / Twin</span>
+              <span class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 32 m²</span>
+            </div>
+            <div class="room-amenities-row">
+              <span class="room-amenity-chip" title="High-Speed Wi-Fi"><i class="fa-solid fa-wifi"></i></span>
+              <span class="room-amenity-chip" title="4K Smart TV"><i class="fa-solid fa-tv"></i></span>
+              <span class="room-amenity-chip" title="Climate Control"><i class="fa-solid fa-snowflake"></i></span>
+              <span class="room-amenity-chip" title="Tea &amp; Coffee Maker"><i class="fa-solid fa-mug-hot"></i></span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-price-wrap">
+                <span class="room-price-from">From</span>
+                <span class="room-price-amount" data-base-price="185">$185</span>
+                <span class="room-price-period">per night (excl. taxes)</span>
+              </div>
+              <div class="room-btn-group">
+                <button class="btn btn-outline-dark btn-sm view-room-details-btn">Details</button>
+                <a href="#bookingEngineSection" class="btn btn-primary btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Room 2: Superior Ocean Room -->
+        <article class="room-card" data-room-id="room-sup" data-category="standard ocean">
+          <div class="room-card-image-wrap">
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Superior Coastal Room" class="room-card-img" loading="lazy">
+            <span class="badge badge-gold room-badge">Popular Choice</span>
+            <button class="room-wishlist-btn" aria-label="Add Superior Coastal Room to wishlist" title="Save to wishlist">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="room-card-content">
+            <h3 class="room-card-title">Superior Coastal Room</h3>
+            <p class="room-card-desc">
+              Wake up to sunlit azure horizons. Featuring a private Juliet balcony, marble vanity bathroom, bespoke botanical amenities, and sunset lounge seating.
+            </p>
+            <div class="room-spec-bar">
+              <span class="room-spec-item"><i class="fa-solid fa-user-group"></i> 2 Adults, 1 Child</span>
+              <span class="room-spec-item"><i class="fa-solid fa-bed"></i> 1 King Bed</span>
+              <span class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 38 m²</span>
+            </div>
+            <div class="room-amenities-row">
+              <span class="room-amenity-chip" title="Direct Ocean View"><i class="fa-solid fa-water"></i></span>
+              <span class="room-amenity-chip" title="Nespresso Machine"><i class="fa-solid fa-coffee"></i></span>
+              <span class="room-amenity-chip" title="Deep Soaking Bath"><i class="fa-solid fa-bath"></i></span>
+              <span class="room-amenity-chip" title="Juliet Balcony"><i class="fa-solid fa-wind"></i></span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-price-wrap">
+                <span class="room-price-from">From</span>
+                <span class="room-price-amount" data-base-price="245">$245</span>
+                <span class="room-price-period">per night (excl. taxes)</span>
+              </div>
+              <div class="room-btn-group">
+                <button class="btn btn-outline-dark btn-sm view-room-details-btn">Details</button>
+                <a href="#bookingEngineSection" class="btn btn-primary btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Room 3: Deluxe Horizon Panorama -->
+        <article class="room-card" data-room-id="room-deluxe" data-category="ocean suites">
+          <div class="room-card-image-wrap">
+            <img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=800&q=80" alt="Deluxe Horizon Panorama Room" class="room-card-img" loading="lazy">
+            <span class="badge badge-gold room-badge">Best Panorama</span>
+            <button class="room-wishlist-btn" aria-label="Add Deluxe Horizon Panorama to wishlist" title="Save to wishlist">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="room-card-content">
+            <h3 class="room-card-title">Deluxe Horizon Panorama</h3>
+            <p class="room-card-desc">
+              Expansive luxury designed for effortless rejuvenation. Unwind on a furnished private terrace, savor specialty espresso, and soak in endless coastal skies.
+            </p>
+            <div class="room-spec-bar">
+              <span class="room-spec-item"><i class="fa-solid fa-user-group"></i> 3 Guests</span>
+              <span class="room-spec-item"><i class="fa-solid fa-bed"></i> Grand King</span>
+              <span class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 46 m²</span>
+            </div>
+            <div class="room-amenities-row">
+              <span class="room-amenity-chip" title="180° Coastline Panorama"><i class="fa-solid fa-binoculars"></i></span>
+              <span class="room-amenity-chip" title="Private Sun Terrace"><i class="fa-solid fa-umbrella-beach"></i></span>
+              <span class="room-amenity-chip" title="Bluetooth Sound"><i class="fa-solid fa-music"></i></span>
+              <span class="room-amenity-chip" title="Complimentary Aperitif"><i class="fa-solid fa-martini-glass"></i></span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-price-wrap">
+                <span class="room-price-from">From</span>
+                <span class="room-price-amount" data-base-price="320">$320</span>
+                <span class="room-price-period">per night (excl. taxes)</span>
+              </div>
+              <div class="room-btn-group">
+                <button class="btn btn-outline-dark btn-sm view-room-details-btn">Details</button>
+                <a href="#bookingEngineSection" class="btn btn-primary btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Room 4: Executive Business Suite -->
+        <article class="room-card" data-room-id="room-exec" data-category="business suites">
+          <div class="room-card-image-wrap">
+            <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=800&q=80" alt="Executive Business Suite" class="room-card-img" loading="lazy">
+            <span class="badge badge-navy room-badge">Executive Lounge</span>
+            <button class="room-wishlist-btn" aria-label="Add Executive Business Suite to wishlist" title="Save to wishlist">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="room-card-content">
+            <h3 class="room-card-title">Executive Business Suite</h3>
+            <p class="room-card-desc">
+              Tailored for discerning business leaders. Includes all-day access to the top-floor Executive Lounge, private board meeting room access, and concierge check-in.
+            </p>
+            <div class="room-spec-bar">
+              <span class="room-spec-item"><i class="fa-solid fa-user-group"></i> 2 Adults</span>
+              <span class="room-spec-item"><i class="fa-solid fa-bed"></i> 1 Grand King</span>
+              <span class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 56 m²</span>
+            </div>
+            <div class="room-amenities-row">
+              <span class="room-amenity-chip" title="Executive Lounge Access"><i class="fa-solid fa-briefcase"></i></span>
+              <span class="room-amenity-chip" title="Welcome Champagne"><i class="fa-solid fa-champagne-glasses"></i></span>
+              <span class="room-amenity-chip" title="Complimentary Breakfast"><i class="fa-solid fa-utensils"></i></span>
+              <span class="room-amenity-chip" title="Express Garment Care"><i class="fa-solid fa-shirt"></i></span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-price-wrap">
+                <span class="room-price-from">From</span>
+                <span class="room-price-amount" data-base-price="430">$430</span>
+                <span class="room-price-period">per night (excl. taxes)</span>
+              </div>
+              <div class="room-btn-group">
+                <button class="btn btn-outline-dark btn-sm view-room-details-btn">Details</button>
+                <a href="#bookingEngineSection" class="btn btn-primary btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Room 5: Family Harmony Suite -->
+        <article class="room-card" data-room-id="room-fam" data-category="family">
+          <div class="room-card-image-wrap">
+            <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80" alt="Family Harmony Suite" class="room-card-img" loading="lazy">
+            <span class="badge badge-gold room-badge">Family Signature</span>
+            <button class="room-wishlist-btn" aria-label="Add Family Harmony Suite to wishlist" title="Save to wishlist">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="room-card-content">
+            <h3 class="room-card-title">Family Harmony Suite</h3>
+            <p class="room-card-desc">
+              Our award-winning Novotel family experience. Interconnecting bedrooms, a child play corner, dedicated entertainment, and complimentary kids breakfast under 16.
+            </p>
+            <div class="room-spec-bar">
+              <span class="room-spec-item"><i class="fa-solid fa-user-group"></i> 2 Adults, 2 Kids</span>
+              <span class="room-spec-item"><i class="fa-solid fa-bed"></i> 1 King + 2 Twins</span>
+              <span class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 68 m²</span>
+            </div>
+            <div class="room-amenities-row">
+              <span class="room-amenity-chip" title="Interconnecting Rooms"><i class="fa-solid fa-people-roof"></i></span>
+              <span class="room-amenity-chip" title="Kids Games &amp; Pack"><i class="fa-solid fa-gamepad"></i></span>
+              <span class="room-amenity-chip" title="Kids Eat Free Under 16"><i class="fa-solid fa-ice-cream"></i></span>
+              <span class="room-amenity-chip" title="Late 3PM Sunday Checkout"><i class="fa-solid fa-clock"></i></span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-price-wrap">
+                <span class="room-price-from">From</span>
+                <span class="room-price-amount" data-base-price="490">$490</span>
+                <span class="room-price-period">per night (excl. taxes)</span>
+              </div>
+              <div class="room-btn-group">
+                <button class="btn btn-outline-dark btn-sm view-room-details-btn">Details</button>
+                <a href="#bookingEngineSection" class="btn btn-primary btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Room 6: The Grand Horizon Penthouse -->
+        <article class="room-card" data-room-id="room-pres" data-category="suites ocean">
+          <div class="room-card-image-wrap">
+            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80" alt="The Grand Horizon Penthouse" class="room-card-img" loading="lazy">
+            <span class="badge badge-gold room-badge">Ultimate Luxury</span>
+            <button class="room-wishlist-btn" aria-label="Add The Grand Horizon Penthouse to wishlist" title="Save to wishlist">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="room-card-content">
+            <h3 class="room-card-title">The Grand Horizon Penthouse</h3>
+            <p class="room-card-desc">
+              The pinnacle of French Riviera hospitality. Private heated infinity plunge pool, open-concept grand salon, dedicated 24/7 butler service, and private helicopter transfers.
+            </p>
+            <div class="room-spec-bar">
+              <span class="room-spec-item"><i class="fa-solid fa-user-group"></i> 4 Guests</span>
+              <span class="room-spec-item"><i class="fa-solid fa-bed"></i> 2 King Master Suites</span>
+              <span class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 115 m²</span>
+            </div>
+            <div class="room-amenities-row">
+              <span class="room-amenity-chip" title="Private Plunge Pool"><i class="fa-solid fa-water-ladder"></i></span>
+              <span class="room-amenity-chip" title="Dedicated 24/7 Butler"><i class="fa-solid fa-bell-concierge"></i></span>
+              <span class="room-amenity-chip" title="In-Suite Dining Tasting"><i class="fa-solid fa-crown"></i></span>
+              <span class="room-amenity-chip" title="Helipad Chauffeur"><i class="fa-solid fa-helicopter"></i></span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-price-wrap">
+                <span class="room-price-from">From</span>
+                <span class="room-price-amount" data-base-price="850">$850</span>
+                <span class="room-price-period">per night (excl. taxes)</span>
+              </div>
+              <div class="room-btn-group">
+                <button class="btn btn-outline-dark btn-sm view-room-details-btn">Details</button>
+                <a href="#bookingEngineSection" class="btn btn-primary btn-sm">Book</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. HOTEL AMENITIES & WELLNESS
+       ========================================================================== -->
+  <section id="amenities" class="section-padding amenities-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">World-Class Facilities</span>
+        <h2 class="section-title">Designed for Balance &amp; Well-Being</h2>
+        <p class="section-subtitle">
+          Whether you seek rejuvenation, wellness, family playtime, or productive corporate workspaces, every amenity is meticulously crafted to enrich your stay.
+        </p>
+      </div>
+
+      <div class="amenities-grid">
+        <!-- 1. Free Wi-Fi -->
+        <div class="amenity-card">
+          <div class="amenity-icon-box">
+            <i class="fa-solid fa-wifi"></i>
+          </div>
+          <h3 class="amenity-title">High-Speed Fibre Wi-Fi</h3>
+          <p class="amenity-desc">Complimentary ultra-fast fiber optic connectivity throughout the entire resort, guest rooms, and beach terraces.</p>
+          <span class="amenity-tag">Unlimited Access</span>
+        </div>
+
+        <!-- 2. Infinity Pool -->
+        <div class="amenity-card">
+          <div class="amenity-icon-box">
+            <i class="fa-solid fa-water-ladder"></i>
+          </div>
+          <h3 class="amenity-title">Heated Infinity Pool</h3>
+          <p class="amenity-desc">A 50-meter temperature-controlled panoramic pool flanked by luxury cabanas and poolside mixology service.</p>
+          <span class="amenity-tag">Open 7:00 AM &ndash; 10:00 PM</span>
+        </div>
+
+        <!-- 3. InBalance Fitness -->
+        <div class="amenity-card">
+          <div class="amenity-icon-box">
+            <i class="fa-solid fa-dumbbell"></i>
+          </div>
+          <h3 class="amenity-title">InBalance Fitness Centre</h3>
+          <p class="amenity-desc">State-of-the-art Technogym cardio machines, free weights, Peloton bikes, and sunrise yoga sessions.</p>
+          <span class="amenity-tag">24/7 Keycard Access</span>
+        </div>
+
+        <!-- 4. Le Spa Wellness -->
+        <div class="amenity-card">
+          <div class="amenity-icon-box">
+            <i class="fa-solid fa-spa"></i>
+          </div>
+          <h3 class="amenity-title">Le Spa &amp; Thalassotherapy</h3>
+          <p class="amenity-desc">Restorative French botanical treatments, Himalayan salt sauna, Turkish hammam, and therapeutic hot tubs.</p>
+          <span class="amenity-tag">Daily 9:00 AM &ndash; 8:00 PM</span>
+        </div>
+
+        <!-- 5. Restaurant & Lounge -->
+        <div class="amenity-card">
+          <div class="amenity-icon-box">
+            <i class="fa-solid fa-utensils"></i>
+          </div>
+          <h3 class="amenity-title">The Horizon Brasserie</h3>
+          <p class="amenity-desc">Contemporary Mediterranean seafood, charcoal-grilled cuts, organic Riviera farm produce, and sommelier cellar pairings.</p>
+          <span class="amenity-tag">Breakfast, Lunch &amp; Dinner</span>
+        </div>
+
+        <!-- 6. 24/7 Room Service -->
+        <div class="amenity-card">
+          <div class="amenity-icon-box">
+            <i class="fa-solid fa-bell-concierge"></i>
+          </div>
+          <h3 class="amenity-title">24/7 Gourmet In-Room Dining</h3>
+          <p class="amenity-desc">Chef-prepared culinary delights delivered warm to your private terrace at any hour of the day or night.</p>
+          <span class="amenity-tag">24 Hours Daily</span>
+        </div>
+
+        <!-- 7. Executive Business Centre -->
+        <div class="amenity-card">
+          <div class="amenity-icon-box">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <h3 class="amenity-title">Executive Business Hub</h3>
+          <p class="amenity-desc">Private video conferencing pods, ergonomic workstations, high-speed color printing, and meeting breakout lounges.</p>
+          <span class="amenity-tag">Dedicated Tech Support</span>
+        </div>
+
+        <!-- 8. Family Friendly Services -->
+        <div class="amenity-card">
+          <div class="amenity-icon-box">
+            <i class="fa-solid fa-children"></i>
+          </div>
+          <h3 class="amenity-title">Novotel Family &amp; Kids Corner</h3>
+          <p class="amenity-desc">Interactive play zone, video games lounge, certified babysitting services, and kids eat free privileges.</p>
+          <span class="amenity-tag">Family Friendly</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. RESTAURANT & DINING SHOWCASE
+       ========================================================================== -->
+  <section id="dining" class="section-padding dining-section">
+    <div class="container">
+      <div class="dining-feature-row">
+        <!-- Dining Images Collage -->
+        <div class="dining-gallery-collage">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80" alt="The Horizon Brasserie Waterfront Terrace" class="dining-main-img" loading="lazy">
+          <div class="dining-floating-badge">
+            <i class="fa-solid fa-wine-glass"></i>
+            <div class="dining-badge-text">
+              <h5>Michelin-Trained Culinary Team</h5>
+              <p>Fresh Farm-to-Table &amp; Ocean Catch</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dining Content -->
+        <div class="dining-info-col">
+          <span class="section-eyebrow">Art of Fine Dining</span>
+          <h3>The Horizon Brasserie &amp; Lounge</h3>
+          <p>
+            Embark on a refined sensory voyage where contemporary French culinary finesse honors vibrant Mediterranean flavors. Savor line-caught seafood, artisanal cheeses, and hand-selected vintage wines against a backdrop of glowing coastal sunsets.
+          </p>
+
+          <div class="dining-highlights-list">
+            <div class="dining-highlight-item">
+              <i class="fa-solid fa-fish"></i>
+              <div class="dining-highlight-text">
+                <h5>Daily Fresh Catch</h5>
+                <p>Delivered each morning by local Riviera fishermen.</p>
+              </div>
+            </div>
+            <div class="dining-highlight-item">
+              <i class="fa-solid fa-leaf"></i>
+              <div class="dining-highlight-text">
+                <h5>Organic &amp; Vegetarian</h5>
+                <p>Abundant vegan, gluten-free, and plant-based menus.</p>
+              </div>
+            </div>
+            <div class="dining-highlight-item">
+              <i class="fa-solid fa-champagne-glasses"></i>
+              <div class="dining-highlight-text">
+                <h5>Sunset Aperitif Lounge</h5>
+                <p>Craft signature spritzes and live acoustic jazz.</p>
+              </div>
+            </div>
+            <div class="dining-highlight-item">
+              <i class="fa-solid fa-bread-slice"></i>
+              <div class="dining-highlight-text">
+                <h5>Artisanal Bakery</h5>
+                <p>Fresh viennoiseries baked in-house every sunrise.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Operating Hours Card -->
+          <div class="dining-hours-box">
+            <strong>Operating Hours (Illustrative Demo):</strong><br>
+            &bull; Breakfast Buffet: 06:30 &ndash; 10:30 (Weekends until 11:00)<br>
+            &bull; Lunch Service: 12:00 &ndash; 15:00<br>
+            &bull; Dinner &amp; Tasting Menu: 18:30 &ndash; 23:00 (Bar open until 01:00)
+          </div>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button id="openMenuModalBtn" class="btn btn-navy">
+              <i class="fa-solid fa-book-open"></i> View Sample Menu
+            </button>
+            <button id="reserveTableBtn" class="btn btn-primary">
+              <i class="fa-regular fa-calendar-check"></i> Reserve A Table
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. EXPERIENCES & RESORT ACTIVITIES
+       ========================================================================== -->
+  <section id="experiences" class="section-padding experiences-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Memorable Journeys</span>
+        <h2 class="section-title">Curated Resort Experiences</h2>
+        <p class="section-subtitle">
+          Immerse yourself in authentic Riviera culture, coastal yachting adventures, and private wellness rituals arranged by our dedicated Head Concierge.
+        </p>
+      </div>
+
+      <div class="experiences-grid">
+        <!-- Exp 1 -->
+        <article class="experience-card">
+          <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Private Yacht &amp; Sunset Sailing" class="experience-bg-img" loading="lazy">
+          <div class="experience-overlay"></div>
+          <div class="experience-content">
+            <span class="experience-tag">Coastal Adventure</span>
+            <h3 class="experience-title">Sunset Yacht Excursions</h3>
+            <p class="experience-desc">Charter our private luxury catamaran for private champagne sunset cruises along secluded coves and sea cliffs.</p>
+            <button type="button" class="btn btn-outline-light btn-sm experience-explore-btn" data-exp-id="exp-yacht" onclick="openExperienceModal('exp-yacht')">Explore Details</button>
+          </div>
+        </article>
+
+        <!-- Exp 2 -->
+        <article class="experience-card">
+          <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" alt="Sunrise Yoga &amp; Mindfulness" class="experience-bg-img" loading="lazy">
+          <div class="experience-overlay"></div>
+          <div class="experience-content">
+            <span class="experience-tag">Wellness &amp; Zen</span>
+            <h3 class="experience-title">Dawn Yoga &amp; Sound Healing</h3>
+            <p class="experience-desc">Greet the morning sun on the oceanfront teak deck with guided mindfulness sessions led by certified wellness masters.</p>
+            <button type="button" class="btn btn-outline-light btn-sm experience-explore-btn" data-exp-id="exp-yoga" onclick="openExperienceModal('exp-yoga')">Explore Details</button>
+          </div>
+        </article>
+
+        <!-- Exp 3 -->
+        <article class="experience-card">
+          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80" alt="Wine Tasting &amp; Vineyard Masterclass" class="experience-bg-img" loading="lazy">
+          <div class="experience-overlay"></div>
+          <div class="experience-content">
+            <span class="experience-tag">Gastronomy</span>
+            <h3 class="experience-title">Vineyard Sommelier Masterclass</h3>
+            <p class="experience-desc">Explore historic biodynamic Provencal vineyards with our Chief Sommelier, followed by private cellar tastings.</p>
+            <button type="button" class="btn btn-outline-light btn-sm experience-explore-btn" data-exp-id="exp-wine" onclick="openExperienceModal('exp-wine')">Explore Details</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. MEETINGS & EVENTS SECTION
+       ========================================================================== -->
+  <section id="events" class="section-padding events-section">
+    <div class="container">
+      <div class="events-wrapper">
+        <div class="events-info-col">
+          <span class="section-eyebrow">Meetings &amp; Celebrations</span>
+          <h3>Inspiring Spaces for Corporate &amp; Social Galas</h3>
+          <p>
+            From high-stakes board meetings to unforgettable oceanfront wedding receptions, Novotel Grand Horizon blends versatile architectural modularity, cutting-edge hybrid conferencing technology, and tailor-made banquet catering.
+          </p>
+
+          <div class="events-features-list">
+            <div class="event-feature-item">
+              <div class="event-feature-icon"><i class="fa-solid fa-users"></i></div>
+              <div class="event-feature-text">
+                <h5>Capacity Up to 450 Guests</h5>
+                <p>Column-free Grand Ballroom and modular meeting suites with natural daylight.</p>
+              </div>
+            </div>
+            <div class="event-feature-item">
+              <div class="event-feature-icon"><i class="fa-solid fa-video"></i></div>
+              <div class="event-feature-text">
+                <h5>State-of-the-Art Hybrid AV</h5>
+                <p>4K dual projection, wireless presentation displays, and high-fidelity acoustics.</p>
+              </div>
+            </div>
+            <div class="event-feature-item">
+              <div class="event-feature-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+              <div class="event-feature-text">
+                <h5>Bespoke Banquet Catering</h5>
+                <p>Custom coffee breaks, themed cocktail receptions, and multi-course gala dinners.</p>
+              </div>
+            </div>
+          </div>
+
+          <button id="openEventModalBtn" class="btn btn-navy">
+            <i class="fa-solid fa-file-signature"></i> Request An Event Proposal
+          </button>
+        </div>
+
+        <!-- Venues Specs Table -->
+        <div class="venues-table-card">
+          <h4>Venues &amp; Capacities Overview</h4>
+          <table class="venue-table">
+            <thead>
+              <tr>
+                <th>Venue Name</th>
+                <th>Area</th>
+                <th>Theater</th>
+                <th>Banquet</th>
+                <th>Boardroom</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>The Grand Ballroom</td>
+                <td>480 m²</td>
+                <td>450</td>
+                <td>320</td>
+                <td>80</td>
+              </tr>
+              <tr>
+                <td>Riviera Pavilion</td>
+                <td>220 m²</td>
+                <td>200</td>
+                <td>160</td>
+                <td>45</td>
+              </tr>
+              <tr>
+                <td>Executive Boardroom</td>
+                <td>75 m²</td>
+                <td>&mdash;</td>
+                <td>&mdash;</td>
+                <td>22</td>
+              </tr>
+              <tr>
+                <td>Breakout Studio A/B</td>
+                <td>95 m²</td>
+                <td>80</td>
+                <td>50</td>
+                <td>30</td>
+              </tr>
+              <tr>
+                <td>Sunset Sea Terrace</td>
+                <td>350 m²</td>
+                <td>250</td>
+                <td>200</td>
+                <td>&mdash;</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">
+            * Configurations can be fully customized with soundproof partition walls upon request.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       10. SPECIAL OFFERS & PACKAGES
+       ========================================================================== -->
+  <section id="offers" class="section-padding offers-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Exclusive Promotions</span>
+        <h2 class="section-title">Special Stays &amp; Packages</h2>
+        <p class="section-subtitle">
+          Enhance your escape with curated packages featuring complimentary breakfast, spa credits, champagne welcomes, and extended checkout privileges.
+        </p>
+      </div>
+
+      <div class="offers-grid">
+        <!-- Offer 1 -->
+        <article class="offer-card">
+          <div class="offer-image-wrap">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Weekend Riviera Escape" class="offer-img" loading="lazy">
+            <span class="offer-discount-badge">Save 20%</span>
+            <span class="offer-promo-code">CODE: WEEKEND20</span>
+          </div>
+          <div class="offer-card-body">
+            <h3 class="offer-title">Weekend Riviera Escape</h3>
+            <p class="offer-desc">Recharge with a magical 2-night coastal weekend getaway featuring oceanfront views and bespoke hospitality.</p>
+            <div class="offer-perks-list">
+              <div class="offer-perk-item"><i class="fa-solid fa-check"></i> 20% Off Best Flexible Rate</div>
+              <div class="offer-perk-item"><i class="fa-solid fa-check"></i> Chilled Bottle of Champagne on Arrival</div>
+              <div class="offer-perk-item"><i class="fa-solid fa-check"></i> Guaranteed 2:00 PM Late Sunday Checkout</div>
+            </div>
+            <div class="offer-card-footer">
+              <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Min. 2 Nights Stay</span>
+              <button class="btn btn-primary btn-sm claim-offer-btn" data-promo-code="WEEKEND20">Claim Offer</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Offer 2 -->
+        <article class="offer-card">
+          <div class="offer-image-wrap">
+            <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80" alt="Family Fun Package" class="offer-img" loading="lazy">
+            <span class="offer-discount-badge">Kids Stay Free</span>
+            <span class="offer-promo-code">CODE: FAMILYFUN</span>
+          </div>
+          <div class="offer-card-body">
+            <h3 class="offer-title">Novotel Family Delight</h3>
+            <p class="offer-desc">Crafted for memorable family moments. Accommodate up to two children under 16 with zero room supplement.</p>
+            <div class="offer-perks-list">
+              <div class="offer-perk-item"><i class="fa-solid fa-check"></i> Kids Under 16 Stay &amp; Eat Free</div>
+              <div class="offer-perk-item"><i class="fa-solid fa-check"></i> Daily Gourmet Breakfast Included</div>
+              <div class="offer-perk-item"><i class="fa-solid fa-check"></i> Complimentary Welcome Toy &amp; Ice Cream</div>
+            </div>
+            <div class="offer-card-footer">
+              <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Valid All Year</span>
+              <button class="btn btn-primary btn-sm claim-offer-btn" data-promo-code="FAMILYFUN">Claim Offer</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Offer 3 -->
+        <article class="offer-card">
+          <div class="offer-image-wrap">
+            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Wellness Spa Retreat" class="offer-img" loading="lazy">
+            <span class="offer-discount-badge">$100 Spa Credit</span>
+            <span class="offer-promo-code">CODE: SPARELAX</span>
+          </div>
+          <div class="offer-card-body">
+            <h3 class="offer-title">Romantic Spa &amp; Wellness Haven</h3>
+            <p class="offer-desc">Immerse your senses in holistic renewal with therapeutic massages, sauna access, and private jacuzzi moments.</p>
+            <div class="offer-perks-list">
+              <div class="offer-perk-item"><i class="fa-solid fa-check"></i> $100 Le Spa Treatment Credit Included</div>
+              <div class="offer-perk-item"><i class="fa-solid fa-check"></i> Daily Organic Detox Smoothies</div>
+              <div class="offer-perk-item"><i class="fa-solid fa-check"></i> Unlimited Thalassotherapy Access</div>
+            </div>
+            <div class="offer-card-footer">
+              <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Min. 3 Nights Stay</span>
+              <button class="btn btn-primary btn-sm claim-offer-btn" data-promo-code="SPARELAX">Claim Offer</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       11. IMAGE GALLERY WITH INTERACTIVE LIGHTBOX
+       ========================================================================== -->
+  <section id="gallery" class="section-padding gallery-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Visual Tour</span>
+        <h2 class="section-title">The Grand Horizon Gallery</h2>
+        <p class="section-subtitle">
+          Catch a glimpse of the sublime ambiance, architecture, and luxury lifestyle awaiting you at our resort.
+        </p>
+      </div>
+
+      <!-- Gallery Filter -->
+      <nav class="gallery-nav" aria-label="Filter photo gallery">
+        <button class="filter-pill gallery-filter-pill active" data-category="all">All Photos</button>
+        <button class="filter-pill gallery-filter-pill" data-category="architecture">Architecture</button>
+        <button class="filter-pill gallery-filter-pill" data-category="rooms">Rooms &amp; Suites</button>
+        <button class="filter-pill gallery-filter-pill" data-category="dining">Dining &amp; Bar</button>
+        <button class="filter-pill gallery-filter-pill" data-category="wellness">Pool &amp; Spa</button>
+      </nav>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid">
+        <!-- Item 1 -->
+        <div class="gallery-item span-2" data-category="architecture" data-index="0">
+          <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80" alt="Resort Sunset Facade" class="gallery-thumb" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            <span class="gallery-item-cat">Architecture</span>
+            <h4 class="gallery-item-title">Grand Horizon Sunset Facade</h4>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-item" data-category="wellness" data-index="1">
+          <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Infinity Pool &amp; Cabanas" class="gallery-thumb" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            <span class="gallery-item-cat">Pool &amp; Spa</span>
+            <h4 class="gallery-item-title">Horizon Infinity Pool</h4>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="gallery-item" data-category="rooms" data-index="2">
+          <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" alt="Penthouse Suite Salon" class="gallery-thumb" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            <span class="gallery-item-cat">Rooms &amp; Suites</span>
+            <h4 class="gallery-item-title">Penthouse Suite Salon</h4>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="gallery-item" data-category="dining" data-index="3">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Dining by the Sea" class="gallery-thumb" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            <span class="gallery-item-cat">Dining &amp; Bar</span>
+            <h4 class="gallery-item-title">Waterfront Dining Terrace</h4>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="gallery-item" data-category="rooms" data-index="4">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Superior Coastal Room" class="gallery-thumb" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            <span class="gallery-item-cat">Rooms &amp; Suites</span>
+            <h4 class="gallery-item-title">Superior Coastal Room</h4>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="gallery-item" data-category="wellness" data-index="5">
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Le Spa Hydrotherapy Suite" class="gallery-thumb" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            <span class="gallery-item-cat">Pool &amp; Spa</span>
+            <h4 class="gallery-item-title">Le Spa Hydrotherapy Suite</h4>
+          </div>
+        </div>
+
+        <!-- Item 7 -->
+        <div class="gallery-item span-2" data-category="dining" data-index="6">
+          <img src="assets/images/dining-bar.jpg" alt="Riviera Dining &amp; Cocktail Bar" class="gallery-thumb" loading="lazy">
+          <div class="gallery-overlay">
+            <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            <span class="gallery-item-cat">Dining &amp; Bar</span>
+            <h4 class="gallery-item-title">Riviera Dining &amp; Cocktail Bar</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Lightbox Modal -->
+  <div id="lightboxModal" class="lightbox-modal" role="dialog" aria-label="Photo Lightbox" aria-modal="true">
+    <button id="lightboxCloseBtn" class="lightbox-close-btn" aria-label="Close Lightbox">&times;</button>
+    <button id="lightboxPrevBtn" class="lightbox-arrow prev" aria-label="Previous Photo"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="lightbox-content-box">
+      <img id="lightboxImg" src="" alt="Enlarged photo" class="lightbox-img">
+      <div class="lightbox-caption-bar">
+        <div>
+          <h4 id="lightboxTitle" style="font-family: var(--font-serif); font-size: 1.25rem;"></h4>
+          <p id="lightboxDesc" style="font-size: 0.8125rem; color: #cbd5e1;"></p>
+        </div>
+        <span id="lightboxCounter" style="font-size: 0.875rem; font-weight: 700; color: var(--accent-gold);"></span>
+      </div>
+    </div>
+    <button id="lightboxNextBtn" class="lightbox-arrow next" aria-label="Next Photo"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+
+  <!-- ==========================================================================
+       12. GUEST REVIEWS & REPUTATION
+       ========================================================================== -->
+  <section id="reviews" class="section-padding reviews-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Guest Voices</span>
+        <h2 class="section-title">What Our Guests Say</h2>
+        <p class="section-subtitle">
+          Discover why discerning world travelers, executives, and families choose Novotel Grand Horizon for their Riviera holidays.
+        </p>
+      </div>
+
+      <div class="reviews-carousel-wrap">
+        <button id="reviewPrevBtn" class="reviews-nav-btn prev" aria-label="Previous review"><i class="fa-solid fa-chevron-left"></i></button>
+
+        <div class="reviews-track-container">
+          <div id="reviewsSlider" class="reviews-slider">
+            <!-- Review 1 -->
+            <div class="review-slide">
+              <div class="review-card">
+                <div class="review-stars">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <blockquote class="review-quote">
+                  "Our stay at Novotel Grand Horizon was nothing short of breathtaking. From the seamless private check-in to the panoramic infinity pool and the exquisite seafood at The Horizon Brasserie, every single detail exceeded our highest expectations."
+                </blockquote>
+                <div class="review-author-wrap">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Claire Vance" class="review-author-img">
+                  <div class="review-author-info">
+                    <h5 class="review-author-name">Claire Vance</h5>
+                    <p class="review-author-meta">Couple Getaway &middot; London, UK &middot; Verified Stay</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-slide">
+              <div class="review-card">
+                <div class="review-stars">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <blockquote class="review-quote">
+                  "As a father of two, finding a resort that truly caters to families without sacrificing luxury is rare. Novotel's Family Harmony Suite was a masterpiece—the kids adored the dedicated welcome gifts, and having kids eat free made the holiday seamless!"
+                </blockquote>
+                <div class="review-author-wrap">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Marcus Lindqvist" class="review-author-img">
+                  <div class="review-author-info">
+                    <h5 class="review-author-name">Marcus Lindqvist</h5>
+                    <p class="review-author-meta">Family Vacationer &middot; Stockholm, Sweden &middot; Verified Stay</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-slide">
+              <div class="review-card">
+                <div class="review-stars">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <blockquote class="review-quote">
+                  "I hosted an international leadership retreat here. The Executive Lounge, hybrid boardroom facilities, and concierge support were impeccable. A premier choice for business leaders who demand seamless connectivity and prestige."
+                </blockquote>
+                <div class="review-author-wrap">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="David Sterling" class="review-author-img">
+                  <div class="review-author-info">
+                    <h5 class="review-author-name">David Sterling</h5>
+                    <p class="review-author-meta">Corporate Executive &middot; New York, USA &middot; Verified Stay</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button id="reviewNextBtn" class="reviews-nav-btn next" aria-label="Next review"><i class="fa-solid fa-chevron-right"></i></button>
+
+        <div class="reviews-dots">
+          <span class="review-dot active" data-review-index="0"></span>
+          <span class="review-dot" data-review-index="1"></span>
+          <span class="review-dot" data-review-index="2"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       13. FAQ ACCORDION SECTION
+       ========================================================================== -->
+  <section class="section-padding faq-section" aria-label="Frequently Asked Questions">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Help &amp; Information</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">
+          Find instant answers to common questions regarding check-in times, family amenities, airport transfers, and cancellation flexibility.
+        </p>
+      </div>
+
+      <div class="faq-accordion-list">
+        <!-- Item 1 -->
+        <div class="faq-item active">
+          <button class="faq-question-btn" aria-expanded="true">
+            <span>What are the standard check-in and check-out times?</span>
+            <span class="faq-icon-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer-collapse" style="max-height: 200px;">
+            <div class="faq-answer-body">
+              Standard check-in begins at 3:00 PM, and check-out is until 12:00 PM (noon). Early check-in and late check-out (up to 3:00 PM or 5:00 PM) are available upon request, subject to availability. ALL Accor Live Limitless Gold and Platinum members enjoy complimentary late check-out privileges.
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="faq-item">
+          <button class="faq-question-btn" aria-expanded="false">
+            <span>What is the Novotel Family Policy regarding children?</span>
+            <span class="faq-icon-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer-collapse">
+            <div class="faq-answer-body">
+              At Novotel, children are our special guests. Up to two children under the age of 16 stay free of charge in their parents' room using existing bedding. Furthermore, children under 16 enjoy complimentary breakfast buffet when accompanied by paying adults having breakfast.
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="faq-item">
+          <button class="faq-question-btn" aria-expanded="false">
+            <span>How far is the hotel from Nice Côte d'Azur Airport (NCE)?</span>
+            <span class="faq-icon-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer-collapse">
+            <div class="faq-answer-body">
+              Novotel Grand Horizon is conveniently situated only 12 kilometers (approximately 15 minutes by private taxi or hotel chauffeur) from Nice Côte d'Azur Airport. We provide private Mercedes sedan airport transfers and helicopter shuttle transfers upon request.
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="faq-item">
+          <button class="faq-question-btn" aria-expanded="false">
+            <span>What is your cancellation and refund policy?</span>
+            <span class="faq-icon-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer-collapse">
+            <div class="faq-answer-body">
+              Our "Flexible Hospitality Rate" permits cancellation or modification with no penalty up to 24 hours prior to your scheduled arrival (by 3:00 PM hotel local time). Non-refundable promotional rates or special holiday packages have specific terms specified at the time of reservation.
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="faq-item">
+          <button class="faq-question-btn" aria-expanded="false">
+            <span>Are pets welcome at the resort?</span>
+            <span class="faq-icon-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-answer-collapse">
+            <div class="faq-answer-body">
+              Yes, well-behaved small to medium pets (up to 12 kg) are warmly welcomed in designated pet-friendly guest rooms. We provide a plush pet bed, organic treats, and water bowls upon check-in for a nominal nightly cleaning fee.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       14. LOCATION & INTERACTIVE CONTACT
+       ========================================================================== -->
+  <section id="contact" class="section-padding contact-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Connect With Us</span>
+        <h2 class="section-title">Location &amp; Concierge</h2>
+        <p class="section-subtitle">
+          Nestled on the prestigious coastal promenade, our resort offers effortless access to world-renowned Riviera landmarks, beaches, and international transit.
+        </p>
+      </div>
+
+      <div class="contact-layout-grid">
+        <!-- Contact Info & Landmark Proximity -->
+        <div class="contact-info-col">
+          <div class="contact-card-box">
+            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-primary);">
+              Hotel Contact Details
+            </h3>
+
+            <div class="contact-detail-row">
+              <div class="contact-icon-bubble"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="contact-text-detail">
+                <h5>Property Address</h5>
+                <p>120 Promenade des Horizons, 06000 Nice, French Riviera, France</p>
+              </div>
+            </div>
+
+            <div class="contact-detail-row">
+              <div class="contact-icon-bubble"><i class="fa-solid fa-phone"></i></div>
+              <div class="contact-text-detail">
+                <h5>Telephone &amp; WhatsApp</h5>
+                <p><a href="tel:+33493000000">+33 (0)4 93 00 00 00</a> / +1 (800) NOVOTEL-DEMO</p>
+              </div>
+            </div>
+
+            <div class="contact-detail-row">
+              <div class="contact-icon-bubble"><i class="fa-solid fa-envelope"></i></div>
+              <div class="contact-text-detail">
+                <h5>Email Concierge</h5>
+                <p><a href="mailto:concierge.grandhorizon@novotel-demo.com">concierge.grandhorizon@novotel-demo.com</a></p>
+              </div>
+            </div>
+
+            <div class="contact-detail-row">
+              <div class="contact-icon-bubble"><i class="fa-solid fa-clock"></i></div>
+              <div class="contact-text-detail">
+                <h5>Reception &amp; Concierge</h5>
+                <p>24 Hours Daily &middot; Multilingual Staff (EN, FR, DE, ES, IT, JA)</p>
+              </div>
+            </div>
+
+            <h4 style="font-size: 0.9375rem; font-weight: 700; margin: 1.75rem 0 0.75rem 0; color: var(--text-primary);">
+              Key Landmark Proximity
+            </h4>
+            <div class="contact-landmarks-grid">
+              <div class="landmark-item"><i class="fa-solid fa-plane"></i> NCE Airport: 12 Mins</div>
+              <div class="landmark-item"><i class="fa-solid fa-train"></i> Central Station: 8 Mins</div>
+              <div class="landmark-item"><i class="fa-solid fa-umbrella-beach"></i> Private Beach: 2 Mins</div>
+              <div class="landmark-item"><i class="fa-solid fa-building-columns"></i> Old Town / Marina: 6 Mins</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-card">
+          <h3>Send An Inquiry</h3>
+          <p>Have questions about your upcoming stay, private event bookings, or VIP concierge arrangements? We look forward to assisting you.</p>
+
+          <form id="mainContactForm" novalidate>
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="contactName" class="form-label">Full Name *</label>
+                <input type="text" id="contactName" class="form-control" placeholder="e.g. Jonathan Smith" required>
+              </div>
+              <div class="form-group">
+                <label for="contactEmail" class="form-label">Email Address *</label>
+                <input type="email" id="contactEmail" class="form-control" placeholder="e.g. jonathan@example.com" required>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="contactPhone" class="form-label">Phone Number</label>
+                <input type="tel" id="contactPhone" class="form-control" placeholder="+1 (555) 000-0000">
+              </div>
+              <div class="form-group">
+                <label for="contactInquiryType" class="form-label">Inquiry Subject</label>
+                <select id="contactInquiryType" class="form-control">
+                  <option value="General">General Inquiries &amp; Information</option>
+                  <option value="Reservation">Room Booking &amp; Upgrades</option>
+                  <option value="Dining">Restaurant &amp; Table Reservations</option>
+                  <option value="Events">Corporate Meetings &amp; Weddings</option>
+                  <option value="Spa">Le Spa Wellness Bookings</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage" class="form-label">Your Message *</label>
+              <textarea id="contactMessage" class="form-control" placeholder="Please provide your stay dates, questions, or special requests..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; height: 50px;">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       15. FOOTER
+       ========================================================================== -->
+  <footer class="main-footer" role="contentinfo">
+    <div class="container-wide">
+      <div class="footer-top-grid">
+        <!-- Brand & Description -->
+        <div class="footer-brand-col">
+          <img src="assets/icons/logo-white.svg" alt="Novotel Grand Horizon Logo" style="height: 48px; width: auto;">
+          <p>
+            Novotel Grand Horizon Resort &amp; Suites embodies international luxury, comforting hospitality, family adventures, and seamless business travel on the French Riviera.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 1: Accommodations -->
+        <div>
+          <h4 class="footer-heading">Accommodations</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#rooms">Standard Heritage</a></li>
+            <li><a href="#rooms">Superior Coastal</a></li>
+            <li><a href="#rooms">Deluxe Horizon</a></li>
+            <li><a href="#rooms">Executive Business Suite</a></li>
+            <li><a href="#rooms">Family Harmony Suite</a></li>
+            <li><a href="#rooms">Grand Horizon Penthouse</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Dining & Wellness -->
+        <div>
+          <h4 class="footer-heading">Dining &amp; Leisure</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#dining">The Horizon Brasserie</a></li>
+            <li><a href="#dining">Le Sunset Spritz Lounge</a></li>
+            <li><a href="#amenities">Le Spa &amp; Thalassotherapy</a></li>
+            <li><a href="#amenities">Heated Infinity Pool</a></li>
+            <li><a href="#amenities">InBalance Fitness</a></li>
+            <li><a href="#experiences">Curated Experiences</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Meetings & Loyalty -->
+        <div>
+          <h4 class="footer-heading">Hotel Services</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#events">The Grand Ballroom</a></li>
+            <li><a href="#events">Hybrid Boardrooms</a></li>
+            <li><a href="#events">Wedding Ceremonies</a></li>
+            <li><a href="#offers">Special Offers &amp; Rates</a></li>
+            <li><a href="#contact">Airport Transfers</a></li>
+            <li><a href="#contact">Concierge Desk</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Newsletter -->
+        <div class="footer-newsletter-box">
+          <h4 class="footer-heading">Newsletter</h4>
+          <p>Receive exclusive member offers, seasonal dining previews, and private invitation events.</p>
+          <form id="footerNewsletterForm" class="footer-newsletter-form">
+            <div class="footer-input-group">
+              <input type="email" id="footerNewsletterEmail" class="footer-input" placeholder="Your email address" required>
+              <button type="submit" class="btn btn-gold btn-sm" aria-label="Subscribe to newsletter">Join</button>
+            </div>
+            <span style="font-size: 0.7rem; color: #64748b;">* Unsubscribe at any time. We respect your privacy.</span>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; 2026 Novotel Grand Horizon Resort &amp; Suites. All rights reserved. Inspired luxury hospitality concept.
+        </div>
+        <div class="footer-legal-links">
+          <a href="#" onclick="openModal(document.getElementById('privacyPolicyModal')); return false;">Privacy Policy</a>
+          <a href="#" onclick="openModal(document.getElementById('termsModal')); return false;">Terms &amp; Conditions</a>
+          <a href="#" onclick="openModal(document.getElementById('cookieModal')); return false;">Cookie Preferences</a>
+          <a href="#contact">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       16. INTERACTIVE MODALS & DRAWERS
+       ========================================================================== -->
+
+  <!-- Availability Search Results Modal -->
+  <div id="availabilityModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="availModalHeading">
+    <div class="modal-container modal-container-lg">
+      <button class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+          <h3 id="availModalHeading">Available Accommodations</h3>
+          <span id="availStayBadge" class="badge badge-gold" style="font-size: 0.8rem;"></span>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+          <i class="fa-solid fa-sparkles" style="color: var(--accent-gold); margin-right: 0.4rem;"></i>
+          The following demo rooms match your selected dates. Select a room to proceed with your illustrative booking demo:
+        </p>
+        <div id="availabilityResultsList">
+          <!-- Dynamically populated by script.js -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-dark" onclick="closeModal(document.getElementById('availabilityModal'))">Modify Dates</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reservation Checkout Demo Modal -->
+  <div id="checkoutDemoModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="checkoutHeading">
+    <div class="modal-container">
+      <button class="modal-close-btn" aria-label="Close checkout">&times;</button>
+      <div class="modal-header">
+        <h3 id="checkoutHeading">Complete Your Demo Reservation</h3>
+      </div>
+      <div class="modal-body">
+        <!-- Summary Box -->
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+          <h4 id="checkoutRoomTitle" style="font-family: var(--font-serif); font-size: 1.125rem; margin-bottom: 0.35rem; color: var(--text-primary);"></h4>
+          <p id="checkoutRoomDates" style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 0.25rem;"></p>
+          <p id="checkoutRoomGuests" style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 0.5rem;"></p>
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 0.75rem; margin-top: 0.5rem;">
+            <span style="font-weight: 700; color: var(--text-primary);">Estimated Total:</span>
+            <span id="checkoutTotalAmount" style="font-size: 1.25rem; font-weight: 800; color: var(--accent-gold);"></span>
+          </div>
+        </div>
+
+        <!-- Guest Details Form -->
+        <form id="reservationDemoForm">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="resGuestFirstName" class="form-label">First Name *</label>
+              <input type="text" id="resGuestFirstName" class="form-control" value="Alexander" required>
+            </div>
+            <div class="form-group">
+              <label for="resGuestLastName" class="form-label">Last Name *</label>
+              <input type="text" id="resGuestLastName" class="form-control" value="Dupont" required>
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="resGuestEmail" class="form-label">Email Address *</label>
+              <input type="email" id="resGuestEmail" class="form-control" value="alexander.dupont@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="resGuestPhone" class="form-label">Mobile Phone *</label>
+              <input type="tel" id="resGuestPhone" class="form-control" value="+33 6 12 34 56 78" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Simulated Payment Method (No real charge)</label>
+            <div style="display: flex; gap: 1rem; margin-top: 0.25rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
+                <input type="radio" name="demoPay" checked> Pay at Hotel (Cash / Card)
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
+                <input type="radio" name="demoPay"> Credit Card Guarantee (Demo)
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; height: 48px; margin-top: 1rem;">
+            Confirm Reservation (Instant Demo)
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Confirmed Voucher Modal -->
+  <div id="bookingConfirmedModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width: 580px; text-align: center;">
+      <button class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <div class="modal-body" style="padding: 3rem 2rem;">
+        <div style="width: 72px; height: 72px; border-radius: 50%; background: rgba(16, 185, 129, 0.15); color: #10b981; font-size: 2.25rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto;">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h3 style="font-family: var(--font-serif); font-size: 2rem; color: var(--text-primary); margin-bottom: 0.5rem;">
+          Reservation Confirmed!
+        </h3>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+          Thank you, <strong id="confGuestName"></strong>. Your stay at Novotel Grand Horizon has been registered in our prototype booking system.
+        </p>
+
+        <div style="background: var(--bg-secondary); border: 1px dashed var(--accent-gold); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+          <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 1px;">Booking Reference Code</span>
+          <div id="confRefCode" style="font-size: 1.75rem; font-weight: 800; color: var(--accent-gold); letter-spacing: 2px; margin: 0.25rem 0;">NOV-882941</div>
+          <span style="font-size: 0.8125rem; color: var(--text-muted);">A confirmation voucher was simulated to <span id="confGuestEmail"></span></span>
+        </div>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <button class="btn btn-outline-dark" onclick="window.print()">
+            <i class="fa-solid fa-print"></i> Print Voucher
+          </button>
+          <button class="btn btn-primary" onclick="closeModal(document.getElementById('bookingConfirmedModal'))">
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Room Details Modal -->
+  <div id="roomDetailsModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="roomModalTitle">
+    <div class="modal-container modal-container-lg">
+      <button class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <div style="position: relative; aspect-ratio: 16 / 9; max-height: 400px; overflow: hidden;">
+        <img id="roomModalImg" src="" alt="Room Details" style="width: 100%; height: 100%; object-fit: cover;">
+        <span id="roomModalBadge" class="badge badge-gold" style="position: absolute; top: 1.25rem; left: 1.25rem;"></span>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
+          <div>
+            <h3 id="roomModalTitle" style="font-family: var(--font-serif); font-size: 1.875rem; color: var(--text-primary); margin-bottom: 0.25rem;"></h3>
+            <span id="roomModalView" style="font-size: 0.875rem; color: var(--accent-gold); font-weight: 600;"></span>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 1.75rem; font-weight: 800; color: var(--text-primary);" id="roomModalPrice"></div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">sample rate / night</div>
+          </div>
+        </div>
+
+        <p id="roomModalDesc" style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;"></p>
+
+        <!-- Specs row -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: 1.5rem; font-size: 0.875rem;">
+          <div><strong>Capacity:</strong> <span id="roomModalCapacity"></span></div>
+          <div><strong>Bed Configuration:</strong> <span id="roomModalBed"></span></div>
+          <div><strong>Room Dimensions:</strong> <span id="roomModalSize"></span></div>
+        </div>
+
+        <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">Included Signature Amenities:</h4>
+        <ul id="roomModalFeaturesList" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 2rem;"></ul>
+
+        <div style="display: flex; justify-content: flex-end; gap: 1rem;">
+          <button class="btn btn-outline-dark" onclick="closeModal(document.getElementById('roomDetailsModal'))">Close</button>
+          <button id="roomModalBookBtn" class="btn btn-primary">Book This Accommodation</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dining Menu Modal -->
+  <div id="diningMenuModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="menuModalHeading">
+    <div class="modal-container modal-container-lg">
+      <button class="modal-close-btn" aria-label="Close menu">&times;</button>
+      <div class="modal-header">
+        <h3 id="menuModalHeading">The Horizon Brasserie &mdash; Sample À La Carte Menu</h3>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem;">
+          <button class="filter-pill menu-tab-pill active" data-menu-category="starters">Starters &amp; Small Plates</button>
+          <button class="filter-pill menu-tab-pill" data-menu-category="mains">Signature Mains</button>
+          <button class="filter-pill menu-tab-pill" data-menu-category="desserts">Artisanal Desserts</button>
+          <button class="filter-pill menu-tab-pill" data-menu-category="cocktails">Cocktails &amp; Wines</button>
+        </div>
+        <div id="menuItemsList"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-dark" onclick="closeModal(document.getElementById('diningMenuModal'))">Close Menu</button>
+        <button class="btn btn-primary" onclick="closeModal(document.getElementById('diningMenuModal')); openModal(document.getElementById('reserveTableModal'));">Reserve A Table</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reserve Table Modal -->
+  <div id="reserveTableModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="tableModalHeading">
+    <div class="modal-container">
+      <button class="modal-close-btn" aria-label="Close reservation">&times;</button>
+      <div class="modal-header">
+        <h3 id="tableModalHeading">Reserve A Table at The Horizon Brasserie</h3>
+      </div>
+      <div class="modal-body">
+        <form id="tableReservationForm">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="tableGuestName" class="form-label">Full Name *</label>
+              <input type="text" id="tableGuestName" class="form-control" required placeholder="e.g. Sarah Jenkins">
+            </div>
+            <div class="form-group">
+              <label for="tableGuestEmail" class="form-label">Email Address *</label>
+              <input type="email" id="tableGuestEmail" class="form-control" required placeholder="e.g. sarah@example.com">
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="tableDate" class="form-label">Date *</label>
+              <input type="date" id="tableDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="tableTimeSlot" class="form-label">Time Slot *</label>
+              <select id="tableTimeSlot" class="form-control">
+                <option value="12:30 PM">12:30 PM (Lunch)</option>
+                <option value="1:30 PM">1:30 PM (Lunch)</option>
+                <option value="7:00 PM">7:00 PM (Sunset Dinner)</option>
+                <option value="8:00 PM" selected>8:00 PM (Dinner)</option>
+                <option value="9:15 PM">9:15 PM (Late Dinner)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="tablePartySize" class="form-label">Guests *</label>
+              <select id="tablePartySize" class="form-control">
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4" selected>4 Guests</option>
+                <option value="6">6 Guests</option>
+                <option value="8+">8+ Guests (Private Dining)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tableSeatingArea" class="form-label">Seating Preference</label>
+              <select id="tableSeatingArea" class="form-control">
+                <option value="Terrace">Oceanfront Panoramic Terrace</option>
+                <option value="Indoor">Main Dining Room &amp; Wine Cellar</option>
+                <option value="Lounge">Cocktail &amp; Tapas Lounge</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; height: 48px; margin-top: 1rem;">
+            Confirm Table Reservation
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Meetings & Events Quote Modal -->
+  <div id="eventEnquiryModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="eventModalHeading">
+    <div class="modal-container">
+      <button class="modal-close-btn" aria-label="Close quote form">&times;</button>
+      <div class="modal-header">
+        <h3 id="eventModalHeading">Request A Meeting &amp; Event Proposal</h3>
+      </div>
+      <div class="modal-body">
+        <form id="eventEnquiryForm">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="eventContactName" class="form-label">Contact Name *</label>
+              <input type="text" id="eventContactName" class="form-control" required placeholder="e.g. Victoria Sterling">
+            </div>
+            <div class="form-group">
+              <label for="eventOrgName" class="form-label">Company / Organization</label>
+              <input type="text" id="eventOrgName" class="form-control" placeholder="e.g. Global Tech Solutions">
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="eventEmail" class="form-label">Business Email *</label>
+              <input type="email" id="eventEmail" class="form-control" required placeholder="e.g. events@company.com">
+            </div>
+            <div class="form-group">
+              <label for="eventTypeSelect" class="form-label">Event Type *</label>
+              <select id="eventTypeSelect" class="form-control">
+                <option value="Corporate">Corporate Conference / Seminar</option>
+                <option value="Boardroom">Executive Board Meeting</option>
+                <option value="Wedding">Wedding Reception / Gala</option>
+                <option value="Private">Private Anniversary / Celebration</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="eventExpectedGuests" class="form-label">Estimated Guests *</label>
+              <input type="number" id="eventExpectedGuests" class="form-control" value="50" min="5" max="500">
+            </div>
+            <div class="form-group">
+              <label for="eventTargetDate" class="form-label">Preferred Date</label>
+              <input type="date" id="eventTargetDate" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="eventRequirements" class="form-label">Catering, AV &amp; Audio Requirements</label>
+            <textarea id="eventRequirements" class="form-control" placeholder="Please specify requirements (e.g. 4K hybrid setup, banquet dinner, room blocks)..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; height: 48px;">
+            Submit Event RFP
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Experience Details Modal -->
+  <div id="experienceDetailsModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="expModalTitle">
+    <div class="modal-container modal-container-lg">
+      <button class="modal-close-btn" aria-label="Close dialog" onclick="closeModal(document.getElementById('experienceDetailsModal'))">&times;</button>
+      <div class="exp-modal-cover">
+        <img id="expModalImg" src="" alt="Experience Showcase" class="exp-modal-img">
+        <div class="exp-modal-cover-overlay"></div>
+        <span id="expModalTag" class="badge badge-gold exp-modal-tag"></span>
+        <div class="exp-modal-heading-box">
+          <h3 id="expModalTitle" class="exp-modal-title"></h3>
+          <p id="expModalTagline" class="exp-modal-tagline"></p>
+        </div>
+      </div>
+      <div class="modal-body exp-modal-body">
+        <div class="exp-modal-meta-row">
+          <div>
+            <span class="section-eyebrow" style="margin-bottom: 0.25rem; display: inline-block;">Signature Resort Journey</span>
+            <div id="expModalSubtitle" style="font-size: 1rem; color: var(--text-primary); font-weight: 600;"></div>
+          </div>
+          <div class="exp-modal-price-box">
+            <div id="expModalPrice" class="exp-modal-price-value"></div>
+            <div id="expModalPriceNote" class="exp-modal-price-note"></div>
+          </div>
+        </div>
+
+        <p id="expModalDesc" class="exp-modal-desc"></p>
+
+        <!-- Specifications Grid -->
+        <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">Experience Itinerary &amp; Specs:</h4>
+        <div id="expModalSpecsGrid" class="exp-specs-grid">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Inclusions & Highlights -->
+        <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">What is Included in Your Journey:</h4>
+        <ul id="expModalHighlights" class="exp-highlights-list">
+          <!-- Dynamically populated -->
+        </ul>
+
+        <!-- Action Buttons -->
+        <div class="exp-modal-actions">
+          <button type="button" class="btn btn-outline-dark" onclick="closeModal(document.getElementById('experienceDetailsModal'))">Close</button>
+          <a id="expModalWhatsappBtn" href="https://wa.me/33493000000" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">
+            <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i> Inquire with Concierge
+          </a>
+          <button type="button" id="expModalReserveBtn" class="btn btn-primary">
+            <i class="fa-regular fa-calendar-check"></i> Reserve Experience
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Showcase Modal -->
+  <div id="videoFilmModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width: 800px; padding: 0; background: #000000; overflow: hidden;">
+      <button class="modal-close-btn" style="color: #ffffff; background: rgba(255,255,255,0.2);" aria-label="Close video" onclick="closeModal(document.getElementById('videoFilmModal'))">&times;</button>
+      <div style="position: relative; aspect-ratio: 16 / 9; width: 100%;">
+        <iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/ScMzIvxBSi4?autoplay=1&mute=1" title="Novotel Hotel Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div id="privacyPolicyModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <button class="modal-close-btn" aria-label="Close dialog" onclick="closeModal(document.getElementById('privacyPolicyModal'))">&times;</button>
+      <div class="modal-header"><h3>Privacy Policy &amp; Data Protection</h3></div>
+      <div class="modal-body" style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7;">
+        <p><strong>1. Introduction</strong><br>Novotel Grand Horizon Resort &amp; Suites adheres to the highest European GDPR and international privacy standards. We are committed to safeguarding the personal data of our guests.</p>
+        <p style="margin-top: 1rem;"><strong>2. Demonstration Notice</strong><br>This web application is a creative hospitality prototype built to illustrate professional front-end design, booking engines, and luxury brand interactions. No real credit card transactions or live guest databases are processed on this demo.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms Modal -->
+  <div id="termsModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <button class="modal-close-btn" aria-label="Close dialog" onclick="closeModal(document.getElementById('termsModal'))">&times;</button>
+      <div class="modal-header"><h3>Terms &amp; Hospitality Conditions</h3></div>
+      <div class="modal-body" style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7;">
+        <p><strong>1. Room Reservations &amp; Guarantees</strong><br>All reservations are subject to hotel confirmation. Standard flexible rates allow cancellations without penalty up to 24 hours prior to 3:00 PM local time on check-in day.</p>
+        <p style="margin-top: 1rem;"><strong>2. Intellectual Property</strong><br>All photography and trademarks belong to their respective copyright holders. This interface illustrates modern web standards in high-end hospitality development.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Modal -->
+  <div id="cookieModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width: 520px;">
+      <button class="modal-close-btn" aria-label="Close dialog" onclick="closeModal(document.getElementById('cookieModal'))">&times;</button>
+      <div class="modal-header"><h3>Cookie &amp; Tracking Preferences</h3></div>
+      <div class="modal-body" style="font-size: 0.875rem; color: var(--text-secondary);">
+        <p style="margin-bottom: 1rem;">We utilize cookies to optimize website performance, remember your preferred currency and saved wishlist rooms, and provide a tailored hospitality browsing experience.</p>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
+          <label style="display: flex; align-items: center; justify-content: space-between; font-weight: 600; color: var(--text-primary);">
+            <span>Essential Operational Cookies</span>
+            <input type="checkbox" checked disabled>
+          </label>
+          <label style="display: flex; align-items: center; justify-content: space-between; font-weight: 600; color: var(--text-primary);">
+            <span>Wishlist &amp; Currency Preferences</span>
+            <input type="checkbox" checked>
+          </label>
+          <label style="display: flex; align-items: center; justify-content: space-between; font-weight: 600; color: var(--text-primary);">
+            <span>Analytics &amp; Experience Metrics</span>
+            <input type="checkbox" checked>
+          </label>
+        </div>
+        <button class="btn btn-primary" style="width: 100%;" onclick="closeModal(document.getElementById('cookieModal')); showToast('Preferences Saved', 'Your cookie preferences have been updated.', 'fa-check');">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       ADMIN & STAFF LOGIN MODAL
+       ========================================================================== -->
+  <div id="adminLoginModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="adminLoginHeading">
+    <div class="modal-container" style="max-width: 500px;">
+      <button class="modal-close-btn" aria-label="Close dialog" onclick="closeModal(document.getElementById('adminLoginModal'))">&times;</button>
+      <div class="modal-header" style="text-align: center; border-bottom: 1px solid var(--border-color); padding: 2rem 2rem 1.25rem;">
+        <div style="width: 54px; height: 54px; border-radius: 50%; background: rgba(212, 175, 55, 0.15); color: var(--accent-gold); display: inline-flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 0.75rem;">
+          <i class="fa-solid fa-hotel"></i>
+        </div>
+        <h3 id="adminLoginHeading" style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.25rem;">Staff &amp; Admin Portal</h3>
+        <p style="font-size: 0.8125rem; color: var(--text-secondary); margin: 0;">Novotel Grand Horizon Resort Management System</p>
+      </div>
+
+      <div class="modal-body" style="padding: 1.5rem 2rem 2rem;">
+        <!-- Demo Credentials Helper Banner -->
+        <div style="background: rgba(212, 175, 55, 0.08); border: 1px dashed var(--accent-gold); border-radius: var(--radius-sm); padding: 0.75rem 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;">
+          <div style="font-size: 0.8125rem; color: var(--text-primary);">
+            <div style="font-weight: 700; color: var(--accent-gold); margin-bottom: 0.15rem;"><i class="fa-solid fa-key"></i> Quick Demo Access</div>
+            <div>Email: <code>admin@novotel.com</code> &bull; Pass: <code>novotel2026</code></div>
+          </div>
+          <button type="button" id="fillDemoAdminBtn" class="btn btn-outline-dark btn-sm" style="font-size: 0.75rem; padding: 0.35rem 0.65rem; white-space: nowrap;">
+            Auto-Fill
+          </button>
+        </div>
+
+        <form id="adminLoginForm">
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <label for="adminEmailInput" style="display: block; font-size: 0.8125rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.35rem;">Work Email / Staff ID</label>
+            <div style="position: relative;">
+              <i class="fa-regular fa-envelope" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.875rem;"></i>
+              <input type="email" id="adminEmailInput" class="form-control" placeholder="admin@novotel.com" value="admin@novotel.com" required style="padding-left: 2.5rem; height: 46px;">
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+              <label for="adminPasswordInput" style="font-size: 0.8125rem; font-weight: 600; color: var(--text-primary); margin: 0;">Password</label>
+              <a href="#" id="forgotAdminPassLink" style="font-size: 0.75rem; color: var(--accent-gold); text-decoration: none;">Forgot password?</a>
+            </div>
+            <div style="position: relative;">
+              <i class="fa-solid fa-lock" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.875rem;"></i>
+              <input type="password" id="adminPasswordInput" class="form-control" placeholder="••••••••" value="novotel2026" required style="padding-left: 2.5rem; padding-right: 2.5rem; height: 46px;">
+              <button type="button" id="toggleAdminPassBtn" style="position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 0.25rem;" aria-label="Toggle password visibility">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="adminRoleSelect" style="display: block; font-size: 0.8125rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.35rem;">Department Role</label>
+            <select id="adminRoleSelect" class="form-control" style="height: 46px;">
+              <option value="Front Desk Manager">Alexandre Laurent &bull; Front Desk Manager (FD-2041)</option>
+              <option value="General Manager">Hélène Beaumont &bull; General Manager (GM-1001)</option>
+              <option value="Head Concierge">Jean-Marc Dupont &bull; Head Concierge (CG-3012)</option>
+              <option value="Executive Chef">Antoine Roussel &bull; Executive Chef (FB-4022)</option>
+              <option value="Revenue Director">Sophie Dubois &bull; Director of Revenue (RV-5018)</option>
+              <option value="Spa Director">Camille Moreau &bull; Spa &amp; Wellness Director (WL-6031)</option>
+              <option value="Executive Housekeeper">Isabelle Fontaine &bull; Executive Housekeeper (HK-7015)</option>
+              <option value="Chief of Security">Marc Delacroix &bull; Chief of Security (SC-8004)</option>
+            </select>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; font-size: 0.8125rem; color: var(--text-secondary);">
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+              <input type="checkbox" id="adminRememberMe" checked> Remember device for this shift
+            </label>
+          </div>
+
+          <button type="submit" id="adminSubmitBtn" class="btn btn-primary" style="width: 100%; height: 48px; font-size: 0.9375rem; justify-content: center;">
+            <i class="fa-solid fa-right-to-bracket"></i> Authenticate &amp; Access Portal
+          </button>
+        </form>
+
+        <div style="margin-top: 1.5rem; text-align: center; font-size: 0.75rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+          <i class="fa-solid fa-shield-halved" style="color: #10b981;"></i> 256-Bit TLS Encrypted Management Session
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       ADMIN MANAGEMENT CONSOLE / DASHBOARD MODAL
+       ========================================================================== -->
+  <div id="adminDashboardModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="adminDashHeading">
+    <div class="modal-container modal-container-lg admin-dash-container" style="max-width: 1060px;">
+      <button class="modal-close-btn" aria-label="Close dashboard" onclick="closeModal(document.getElementById('adminDashboardModal'))">&times;</button>
+      
+      <!-- Top Dashboard Header -->
+      <div class="admin-dash-header">
+        <div class="admin-dash-header-left">
+          <div class="admin-dash-avatar">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap;">
+              <h3 id="adminDashHeading" style="font-family: var(--font-serif); font-size: 1.35rem; color: #ffffff; margin: 0;">Novotel Management Console</h3>
+              <span id="adminLiveBadge" class="badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.4); font-size: 0.6875rem;">
+                <span class="admin-status-dot" style="margin-right: 4px;"></span> LIVE PMS SESSION
+              </span>
+            </div>
+            <div id="adminStaffIdentity" style="font-size: 0.8125rem; color: rgba(255, 255, 255, 0.85); margin-top: 0.25rem;">
+              Alexandre Laurent &bull; Front Desk &amp; Guest Relations Manager
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-dash-header-right">
+          <div class="admin-shift-clock" id="adminShiftClock"></div>
+          <button type="button" id="adminLogoutBtn" class="btn btn-outline-light btn-sm" style="border-color: rgba(255, 255, 255, 0.35);">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out
+          </button>
+        </div>
+      </div>
+
+      <div class="modal-body admin-dash-body">
+        <!-- 4 KPI Metrics Cards -->
+        <div class="admin-kpi-grid">
+          <div class="admin-kpi-card">
+            <div class="admin-kpi-label">Today's Occupancy</div>
+            <div class="admin-kpi-num">89.2%</div>
+            <div class="admin-kpi-sub"><span style="color: #10b981; font-weight: 700;">214</span> / 240 Rooms Reserved</div>
+            <div class="admin-kpi-bar"><div class="admin-kpi-fill" style="width: 89.2%;"></div></div>
+          </div>
+
+          <div class="admin-kpi-card">
+            <div class="admin-kpi-label">Today's Folio Revenue</div>
+            <div class="admin-kpi-num">$24,850</div>
+            <div class="admin-kpi-sub"><span style="color: #10b981; font-weight: 700;">+14.2%</span> vs forecast target</div>
+            <div class="admin-kpi-bar"><div class="admin-kpi-fill" style="width: 78%; background: var(--accent-gold);"></div></div>
+          </div>
+
+          <div class="admin-kpi-card">
+            <div class="admin-kpi-label">Arrivals / Departures</div>
+            <div class="admin-kpi-num">38 <span style="font-size: 1rem; font-weight: 500; color: var(--text-muted);">/ 26</span></div>
+            <div class="admin-kpi-sub">31 Checked In &bull; 7 En Route</div>
+            <div class="admin-kpi-bar"><div class="admin-kpi-fill" style="width: 82%; background: #3b82f6;"></div></div>
+          </div>
+
+          <div class="admin-kpi-card">
+            <div class="admin-kpi-label">Concierge VIP Tasks</div>
+            <div class="admin-kpi-num" id="adminTasksCount">4</div>
+            <div class="admin-kpi-sub">1 Yacht &bull; 1 Wine &bull; 2 Transfers</div>
+            <div class="admin-kpi-bar"><div class="admin-kpi-fill" style="width: 60%; background: #8b5cf6;"></div></div>
+          </div>
+        </div>
+
+        <!-- Dashboard Navigation Tabs -->
+        <div class="admin-tabs-nav">
+          <button type="button" class="admin-tab-btn active" data-admin-tab="reservations">
+            <i class="fa-solid fa-calendar-days"></i> Live Reservations (<span id="adminResCountBadge">5</span>)
+          </button>
+          <button type="button" class="admin-tab-btn" data-admin-tab="inventory">
+            <i class="fa-solid fa-bed"></i> Room Inventory &amp; Rates
+          </button>
+          <button type="button" class="admin-tab-btn" data-admin-tab="concierge">
+            <i class="fa-solid fa-bell-concierge"></i> Concierge Tasks (<span id="adminConciergeCountBadge">4</span>)
+          </button>
+          <button type="button" class="admin-tab-btn" data-admin-tab="staff">
+            <i class="fa-solid fa-id-card-clip"></i> Staff Directory &amp; Roster (<span id="adminStaffCountBadge">8</span>)
+          </button>
+          <button type="button" class="admin-tab-btn" data-admin-tab="actions">
+            <i class="fa-solid fa-sliders"></i> Shift Actions
+          </button>
+        </div>
+
+        <!-- Tab 1: Live Reservations -->
+        <div id="adminTab-reservations" class="admin-tab-pane active">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; gap: 1rem; flex-wrap: wrap;">
+            <div style="position: relative; flex: 1; max-width: 320px;">
+              <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.8125rem;"></i>
+              <input type="text" id="adminSearchGuest" class="form-control" placeholder="Search guest name or room..." style="padding-left: 2.25rem; height: 38px; font-size: 0.8125rem;">
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <button type="button" id="adminAddWalkInBtn" class="btn btn-primary btn-sm">
+                <i class="fa-solid fa-plus"></i> Walk-In Check-In
+              </button>
+              <button type="button" id="adminExportLedgerBtn" class="btn btn-outline-dark btn-sm">
+                <i class="fa-solid fa-file-arrow-down"></i> Export CSV
+              </button>
+            </div>
+          </div>
+
+          <div class="admin-table-wrapper">
+            <table class="admin-table" id="adminReservationsTable">
+              <thead>
+                <tr>
+                  <th>Booking Ref</th>
+                  <th>Guest Name</th>
+                  <th>Room Assigned</th>
+                  <th>Dates &amp; Stay</th>
+                  <th>Total Rate</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminReservationsTbody">
+                <!-- Populated dynamically via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 2: Inventory & Rates -->
+        <div id="adminTab-inventory" class="admin-tab-pane">
+          <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">
+            Adjust live nightly base rates and availability status. Adjustments propagate instantly to the guest booking engine.
+          </p>
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Room Category</th>
+                  <th>Current Base Rate (USD)</th>
+                  <th>Allotted Units</th>
+                  <th>Inventory Status</th>
+                  <th>Live Rate Adjustment</th>
+                </tr>
+              </thead>
+              <tbody id="adminInventoryTbody">
+                <!-- Populated dynamically from roomsData -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 3: Concierge Requests -->
+        <div id="adminTab-concierge" class="admin-tab-pane">
+          <div id="adminConciergeList" style="display: grid; gap: 0.75rem;">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Tab 4: Staff Directory & Roster -->
+        <div id="adminTab-staff" class="admin-tab-pane">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; gap: 1rem; flex-wrap: wrap;">
+            <div style="display: flex; gap: 0.75rem; flex: 1; max-width: 520px; flex-wrap: wrap;">
+              <div style="position: relative; flex: 1; min-width: 220px;">
+                <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.8125rem;"></i>
+                <input type="text" id="adminSearchStaff" class="form-control" placeholder="Search staff by name, role, ID, or dept..." style="padding-left: 2.25rem; height: 38px; font-size: 0.8125rem;">
+              </div>
+              <select id="adminFilterStaffDept" class="form-control" style="width: auto; height: 38px; font-size: 0.8125rem;">
+                <option value="all">All Departments</option>
+                <option value="Executive Office">Executive Office</option>
+                <option value="Front Office">Front Office</option>
+                <option value="Concierge & VIP Services">Concierge &amp; VIP</option>
+                <option value="Culinary & F&B">Culinary &amp; F&amp;B</option>
+                <option value="Revenue & Sales">Revenue &amp; Sales</option>
+                <option value="Wellness & Recreation">Wellness &amp; Spa</option>
+                <option value="Housekeeping & Rooms">Housekeeping</option>
+                <option value="Security & Safety">Security</option>
+              </select>
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <button type="button" id="adminAddStaffBtn" class="btn btn-primary btn-sm">
+                <i class="fa-solid fa-user-plus"></i> Add Staff Member
+              </button>
+              <button type="button" id="adminExportStaffBtn" class="btn btn-outline-dark btn-sm">
+                <i class="fa-solid fa-file-export"></i> Export Roster
+              </button>
+            </div>
+          </div>
+
+          <!-- Staff Table -->
+          <div class="admin-table-wrapper">
+            <table class="admin-table" id="adminStaffTable">
+              <thead>
+                <tr>
+                  <th>Staff Member</th>
+                  <th>ID &amp; Department</th>
+                  <th>Shift Schedule</th>
+                  <th>Radio &amp; Extension</th>
+                  <th>Duty Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminStaffTbody">
+                <!-- Populated dynamically via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 4: Shift Actions -->
+        <div id="adminTab-actions" class="admin-tab-pane">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1.25rem;">
+              <h5 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;"><i class="fa-solid fa-print" style="color: var(--accent-gold);"></i> Night Audit Report</h5>
+              <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 1rem;">Finalize and balance all room charges, taxes, and postings for the shift ledger.</p>
+              <button type="button" class="btn btn-outline-dark btn-sm" onclick="showToast('Night Audit Generated', 'Day ledger finalized and dispatched to management email.', 'fa-file-invoice')">Generate Audit</button>
+            </div>
+
+            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1.25rem;">
+              <h5 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;"><i class="fa-solid fa-bell" style="color: var(--accent-gold);"></i> Guest Announcement Broadcast</h5>
+              <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 1rem;">Send an in-app notice or SMS to currently checked-in guests (e.g. sunset cocktail hour).</p>
+              <button type="button" class="btn btn-outline-dark btn-sm" onclick="showToast('Broadcast Dispatched', 'Sunset Aperitif notification sent to 214 resident guests.', 'fa-bullhorn')">Send Broadcast</button>
+            </div>
+
+            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1.25rem;">
+              <h5 style="font-size: 0.9375rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;"><i class="fa-solid fa-database" style="color: var(--accent-gold);"></i> Reset Demo Data</h5>
+              <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 1rem;">Restore all sample reservations, standard room rates, and concierge tasks to defaults.</p>
+              <button type="button" class="btn btn-outline-dark btn-sm" id="adminResetDataBtn">Restore Defaults</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Dashboard Footer -->
+      <div style="background: var(--bg-secondary); border-top: 1px solid var(--border-color); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8125rem;">
+        <span style="color: var(--text-muted);"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> Connected to Novotel Central Reservation System (Amadeus CRS v4.18)</span>
+        <button type="button" class="btn btn-primary btn-sm" onclick="closeModal(document.getElementById('adminDashboardModal'))">Return to Website</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       STAFF MEMBER DETAILS MODAL
+       ========================================================================== -->
+  <div id="staffDetailsModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="staffDetailName">
+    <div class="modal-container" style="max-width: 640px;">
+      <button class="modal-close-btn" aria-label="Close dialog" onclick="closeModal(document.getElementById('staffDetailsModal'))">&times;</button>
+      
+      <div style="background: linear-gradient(135deg, #061729 0%, #0e2a4a 100%); padding: 2rem 2rem 1.5rem; border-radius: var(--radius-lg) var(--radius-lg) 0 0; color: #ffffff; display: flex; align-items: center; gap: 1.25rem;">
+        <img id="staffDetailAvatar" src="" alt="Staff Portrait" class="staff-detail-avatar">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem; flex-wrap: wrap;">
+            <h3 id="staffDetailName" style="font-family: var(--font-serif); font-size: 1.5rem; color: #ffffff; margin: 0;"></h3>
+            <span id="staffDetailStatusBadge" class="badge"></span>
+          </div>
+          <div id="staffDetailRole" style="font-size: 0.875rem; color: var(--accent-gold); font-weight: 600;"></div>
+          <div style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.75); margin-top: 0.2rem;">
+            Employee Ref: <strong id="staffDetailId" style="color: #ffffff; font-family: monospace;"></strong> &bull; Dept: <span id="staffDetailDept"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-body" style="padding: 1.75rem 2rem;">
+        <!-- Specs / Profile Matrix -->
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: 1.5rem; font-size: 0.8125rem;">
+          <div><span style="color: var(--text-muted); display: block; font-size: 0.75rem; text-transform: uppercase;">Direct Phone / Ext</span> <strong id="staffDetailPhone" style="color: var(--text-primary);"></strong></div>
+          <div><span style="color: var(--text-muted); display: block; font-size: 0.75rem; text-transform: uppercase;">Internal Email</span> <strong id="staffDetailEmail" style="color: var(--text-primary);"></strong></div>
+          <div><span style="color: var(--text-muted); display: block; font-size: 0.75rem; text-transform: uppercase;">Radio Comm Channel</span> <strong id="staffDetailRadio" style="color: var(--text-primary);"></strong></div>
+          <div><span style="color: var(--text-muted); display: block; font-size: 0.75rem; text-transform: uppercase;">Active Shift Hours</span> <strong id="staffDetailShift" style="color: var(--text-primary);"></strong></div>
+          <div><span style="color: var(--text-muted); display: block; font-size: 0.75rem; text-transform: uppercase;">Assigned Resort Zone</span> <strong id="staffDetailZone" style="color: var(--text-primary);"></strong></div>
+          <div><span style="color: var(--text-muted); display: block; font-size: 0.75rem; text-transform: uppercase;">Accor Tenure</span> <strong id="staffDetailTenure" style="color: var(--text-primary);"></strong></div>
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <h5 style="font-size: 0.875rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;"><i class="fa-solid fa-award" style="color: var(--accent-gold);"></i> Certifications &amp; Accreditations</h5>
+          <p id="staffDetailCertifications" style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.6; margin: 0;"></p>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h5 style="font-size: 0.875rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;"><i class="fa-solid fa-language" style="color: var(--accent-gold);"></i> Spoken Guest Languages</h5>
+          <p id="staffDetailLanguages" style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.6; margin: 0;"></p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem; border-top: 1px solid var(--border-color); padding-top: 1.25rem; flex-wrap: wrap;">
+          <button type="button" class="btn btn-outline-dark" onclick="closeModal(document.getElementById('staffDetailsModal'))">Close</button>
+          <button type="button" id="staffToggleDutyBtn" class="btn btn-outline-dark">
+            <i class="fa-solid fa-clock"></i> Toggle Duty Status
+          </button>
+          <button type="button" id="staffPageBtn" class="btn btn-primary">
+            <i class="fa-solid fa-radio"></i> Send Direct Page
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       ADD NEW STAFF MEMBER MODAL
+       ========================================================================== -->
+  <div id="addStaffModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="addStaffHeading">
+    <div class="modal-container" style="max-width: 520px;">
+      <button class="modal-close-btn" aria-label="Close dialog" onclick="closeModal(document.getElementById('addStaffModal'))">&times;</button>
+      <div class="modal-header">
+        <h3 id="addStaffHeading">Register New Staff Member</h3>
+      </div>
+      <div class="modal-body">
+        <form id="addStaffForm">
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="newStaffName" style="font-size: 0.8125rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; display: block;">Full Name</label>
+            <input type="text" id="newStaffName" class="form-control" placeholder="e.g. Lucas Bernard" required style="height: 42px;">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
+            <div>
+              <label for="newStaffDept" style="font-size: 0.8125rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; display: block;">Department</label>
+              <select id="newStaffDept" class="form-control" style="height: 42px;">
+                <option value="Front Office">Front Office</option>
+                <option value="Concierge & VIP Services">Concierge &amp; VIP</option>
+                <option value="Culinary & F&B">Culinary &amp; F&amp;B</option>
+                <option value="Revenue & Sales">Revenue &amp; Sales</option>
+                <option value="Wellness & Recreation">Wellness &amp; Spa</option>
+                <option value="Housekeeping & Rooms">Housekeeping</option>
+                <option value="Security & Safety">Security</option>
+                <option value="Executive Office">Executive Office</option>
+              </select>
+            </div>
+            <div>
+              <label for="newStaffRole" style="font-size: 0.8125rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; display: block;">Official Title</label>
+              <input type="text" id="newStaffRole" class="form-control" placeholder="e.g. Guest Relations Lead" required style="height: 42px;">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
+            <div>
+              <label for="newStaffShift" style="font-size: 0.8125rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; display: block;">Shift Schedule</label>
+              <select id="newStaffShift" class="form-control" style="height: 42px;">
+                <option value="07:00 - 15:30">Morning (07:00 - 15:30)</option>
+                <option value="08:30 - 17:30">Day (08:30 - 17:30)</option>
+                <option value="15:00 - 23:30">Evening (15:00 - 23:30)</option>
+                <option value="23:00 - 07:30">Night Audit (23:00 - 07:30)</option>
+              </select>
+            </div>
+            <div>
+              <label for="newStaffRadio" style="font-size: 0.8125rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; display: block;">Radio Channel</label>
+              <input type="text" id="newStaffRadio" class="form-control" placeholder="e.g. Ch. 2 Front Office" value="Ch. 2 Front Office" style="height: 42px;">
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="newStaffEmail" style="font-size: 0.8125rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; display: block;">Staff Work Email</label>
+            <input type="email" id="newStaffEmail" class="form-control" placeholder="l.bernard@novotel.com" required style="height: 42px;">
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="newStaffZone" style="font-size: 0.8125rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; display: block;">Assigned Resort Zone</label>
+            <input type="text" id="newStaffZone" class="form-control" placeholder="e.g. VIP Reception & Executive Wing" value="VIP Reception & Executive Wing" style="height: 42px;">
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+            <button type="button" class="btn btn-outline-dark" onclick="closeModal(document.getElementById('addStaffModal'))">Cancel</button>
+            <button type="submit" class="btn btn-primary">Register Staff Member</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wishlist Slide-out Drawer -->
+  <aside id="wishlistDrawer" class="wishlist-drawer" aria-label="Saved accommodations wishlist">
+    <div class="wishlist-header">
+      <h3><i class="fa-solid fa-heart" style="color: #ef4444; margin-right: 0.5rem;"></i> Saved Accommodations</h3>
+      <button id="closeWishlistDrawerBtn" style="font-size: 1.5rem; color: var(--text-primary);" aria-label="Close wishlist">&times;</button>
+    </div>
+    <div id="wishlistItemsContainer" class="wishlist-body">
+      <!-- Populated dynamically by script.js -->
+    </div>
+    <div style="padding: 1.25rem 1.5rem; border-top: 1px solid var(--border-color); background: var(--bg-secondary);">
+      <a href="#bookingEngineSection" class="btn btn-primary" style="width: 100%;" onclick="document.getElementById('wishlistDrawer').classList.remove('active')">
+        Book From Wishlist
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       17. FLOATING ACTION WIDGETS
+       ========================================================================== -->
+  <div class="floating-actions-container">
+    <!-- WhatsApp Direct Concierge Link -->
+    <a href="https://wa.me/33493000000?text=Hello%20Novotel%20Grand%20Horizon%20Concierge,%20I%20would%20like%20to%20inquire%20about%20a%20stay" target="_blank" rel="noopener noreferrer" class="fab-btn whatsapp-fab" aria-label="Chat with Concierge on WhatsApp" title="WhatsApp Concierge">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top Smooth Scroll -->
+    <button id="backToTopBtn" class="fab-btn back-to-top-btn" aria-label="Back to top of page" title="Scroll to top">
+      <i class="fa-solid fa-chevron-up"></i>
+    </button>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Core JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
